@@ -6,7 +6,7 @@
 
         <variable
             name="Data"
-            type="com.sensorsdata.analytics.android.demo.entity.BindingEntity" />
+            type="com.zalldata.zall.android.demo.entity.BindingEntity" />
 
         <variable
             name="clickListener"

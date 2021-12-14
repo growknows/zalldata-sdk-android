@@ -1,14 +1,17 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-android'
-//添加 com.sensorsdata.analytics.android 插件
+//添加 com.zalldata.zall.android 插件
+//apply plugin: 'com.zalldata.zall.android'
 apply plugin: 'com.sensorsdata.analytics.android'
+
+
 
 android {
     compileSdkVersion 30
 
     defaultConfig {
-        applicationId "com.sensorsdata.analytics.android.demo"
+        applicationId "com.zalldata.zall.android.demo"
         minSdkVersion 15
         targetSdkVersion 30
         versionCode 1
@@ -56,7 +59,7 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.legacy:legacy-support-v13:1.0.0'
-    implementation project(':SensorsAnalyticsSDK')
+    implementation project(':ZallDataSDK')
     implementation 'androidx.core:core-ktx:1.2.0'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'com.google.android:flexbox:1.1.0'

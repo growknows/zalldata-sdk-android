@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.sensorsdata.analytics.android.demo">
+    package="com.zalldata.zall.android.demo">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -24,7 +24,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.sensorsdata.analytics.android.sdk.dialog.SchemeActivity"
+        <activity android:name="com.zalldata.zall.android.sdk.dialog.SchemeActivity"
             android:configChanges="orientation|screenSize"
             android:launchMode="singleTask">
             <intent-filter>
@@ -37,7 +37,7 @@
             </intent-filter>
         </activity>
         <meta-data
-            android:name="com.sensorsdata.analytics.android.EnableLogging"
+            android:name="com.zalldata.zall.android.EnableLogging"
             android:value="true" />
 
     </application>

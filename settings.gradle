@@ -1,1 +1,1 @@
-include ':SensorsAnalyticsSDK', ':demo', ':demoAndroidX'
+include ':ZallDataSDK', ':demo', ':demoAndroidX'

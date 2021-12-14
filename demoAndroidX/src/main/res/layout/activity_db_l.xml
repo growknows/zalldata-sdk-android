@@ -6,7 +6,7 @@
 
         <variable
             name="handlers"
-            type="com.sensorsdata.analytics.android.demo.activity.DataBindingLambdaActivity" />
+            type="com.zalldata.zall.android.demo.activity.DataBindingLambdaActivity" />
     </data>
 
     <ScrollView
