@@ -1,6 +1,6 @@
 /*
- * Created by yuejz on 2021/02/19.
- * Copyright 2015－2021 Sensors Data Inc.
+ * Created by guo on 2020/1/8.
+ * Copyright 2015－2021 Zall Data Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -102,7 +102,7 @@ public class PushAutoTrackHelper {
     /**
      * 推送采集
      *
-     * @param sfData 神策智能推荐字段
+     * @param sfData 卓尔智能推荐字段
      * @param title 推送标题
      * @param content 推送内容
      * @param appPushServiceName App 三方推送服务商，如极光、个推
@@ -119,7 +119,7 @@ public class PushAutoTrackHelper {
     /**
      * 推送采集
      *
-     * @param sfData 神策智能推荐字段
+     * @param sfData 卓尔智能推荐字段
      * @param title 推送标题
      * @param content 推送内容
      * @param appPushServiceName App 三方推送服务商，如极光、个推

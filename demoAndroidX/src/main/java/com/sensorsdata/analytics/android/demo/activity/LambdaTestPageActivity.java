@@ -1,6 +1,6 @@
 /*
- * Created by zhangwei on 2020/08/17.
- * Copyright 2015－2021 Sensors Data Inc.
+ * Created by guo on 2021/3/20.
+ * Copyright 2015－2021 Zall Data Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -215,8 +215,8 @@ public class LambdaTestPageActivity extends AppCompatActivity {
     }
 
     private void handleExpandableListView() {
-        final String[] groups = new String[]{"神策数据", "神策数据", "神策数据", "神策数据"};
-        final String[][] childs = new String[][]{{"Sensors Analytics", "Sensors Focus", "Sensors Personas", "Sensors Recommender", "Sensors Journey"}, {"Sensors Data Governor", "Sensors Point", "Sensors Personalization Engine",
+        final String[] groups = new String[]{"卓尔数据", "卓尔数据", "卓尔数据", "卓尔数据"};
+        final String[][] childs = new String[][]{{"Zall Data", "Sensors Focus", "Sensors Personas", "Sensors Recommender", "Sensors Journey"}, {"Sensors Data Governor", "Sensors Point", "Sensors Personalization Engine",
                 "Sensors Platform"}, {"Sensors School", "Sensors Data Library", "SA 分析师认证", "SA 分析专家认证"}, {"Sensors Data Open Source", "Sensors Data"}};
         ExpandableListView expandableListView = findViewById(R.id.expandableListView);
         expandableListView.setAdapter(new BaseExpandableListAdapter() {

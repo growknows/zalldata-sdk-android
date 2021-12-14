@@ -1,8 +1,8 @@
 package com.sensorsdata.analytics.android.sdk.util;
 
 /*
- * Created by zxwei on 2019/10/15.
- * Copyright 2015－2021 Sensors Data Inc.
+ * Created by guo on 2020/9/1.
+ * Copyright 2015－2021 Zall Data Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.

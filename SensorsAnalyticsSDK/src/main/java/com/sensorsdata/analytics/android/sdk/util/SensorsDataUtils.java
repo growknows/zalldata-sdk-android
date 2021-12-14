@@ -1,6 +1,6 @@
 /*
- * Created by wangzhuozhou on 2015/08/01.
- * Copyright 2015－2021 Sensors Data Inc.
+ * Created by guo on 2021/6/4.
+ * Copyright 2015－2021 Zall Data Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -762,7 +762,7 @@ public final class SensorsDataUtils {
 
     /**
      * 解析 Activity 的 Intent 中是否包含 DebugMode、点击图、可视化全埋点的 uri 信息并显示 Dialog。
-     * 此方法用来辅助完善 Dialog 的展示，通常用在配置了神策 scheme 的 Activity 页面中的 onNewIntent 方法中，
+     * 此方法用来辅助完善 Dialog 的展示，通常用在配置了卓尔 scheme 的 Activity 页面中的 onNewIntent 方法中，
      * 并且此 Activity 的 launchMode 为 singleTop 或者 singleTask 或者为 singleInstance。
      *
      * @param activity activity

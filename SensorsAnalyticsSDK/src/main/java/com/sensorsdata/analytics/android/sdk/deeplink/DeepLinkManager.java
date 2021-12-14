@@ -1,6 +1,6 @@
 /*
- * Created by chenru on 2020/07/06.
- * Copyright 2015－2021 Sensors Data Inc.
+ * Created by guo on 2020/1/21.
+ * Copyright 2015－2021 Zall Data Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -80,11 +80,11 @@ public class DeepLinkManager {
     }
 
     /**
-     * 是否是神策 DeepLink
+     * 是否是卓尔 DeepLink
      *
      * @param serverHost 数据接收地址 host
      * @param intent DeepLink 唤起的 Intent
-     * @return 是否是神策 DeepLink
+     * @return 是否是卓尔 DeepLink
      */
     private static boolean isSensorsDataDeepLink(Intent intent, String serverHost) {
         if (!isDeepLink(intent) || TextUtils.isEmpty(serverHost) || intent.getData() == null) {
@@ -105,7 +105,7 @@ public class DeepLinkManager {
         if (intent == null) {
             return null;
         }
-        //优先判断是否是神策 DeepLink 短链
+        //优先判断是否是卓尔 DeepLink 短链
         if (isSensorsDataDeepLink(intent, new ServerUrl(serverUrl).getHost())) {
             return new SensorsDataDeepLink(intent, serverUrl);
         }

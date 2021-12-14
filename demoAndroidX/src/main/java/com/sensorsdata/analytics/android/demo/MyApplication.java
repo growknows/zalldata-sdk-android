@@ -1,6 +1,6 @@
 /*
- * Created by wangzhuozhou on 2016/11/12.
- * Copyright 2015－2021 Sensors Data Inc.
+ * Created by guo on 2020/4/20.
+ * Copyright 2015－2021 Zall Data Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,9 +24,9 @@ import com.sensorsdata.analytics.android.sdk.SensorsDataAPI;
 
 public class MyApplication extends Application {
     /**
-     * Sensors Analytics 采集数据的地址
+     * Zall Data 采集数据的地址
      */
-    private final static String SA_SERVER_URL = "https://sdkdebugtest.datasink.sensorsdata.cn/sa?project=default&token=cfb8b60e42e0ae9b";
+    private final static String SA_SERVER_URL = "http://172.16.90.61:58080/a?service=zall&project=dddssss";
 
     @Override
     public void onCreate() {
@@ -35,7 +35,7 @@ public class MyApplication extends Application {
     }
 
     /**
-     * 初始化 Sensors Analytics SDK
+     * 初始化 Zall Data SDK
      */
     private void initSensorsDataAPI() {
         SAConfigOptions configOptions = new SAConfigOptions(SA_SERVER_URL);
@@ -46,7 +46,12 @@ public class MyApplication extends Application {
                 SensorsAnalyticsAutoTrackEventType.APP_CLICK)
                 .enableTrackAppCrash()
                 .enableJavaScriptBridge(true)
-                .enableVisualizedAutoTrack(true);
+                .enableVisualizedAutoTrack(true)
+                .enableLog(true)
+                .enableTrackPageLeave(true)
+                .setFlushBulkSize(1)
+                .enableTrackScreenOrientation(true);
+
         SensorsDataAPI.startWithConfigOptions(this, configOptions);
         SensorsDataAPI.sharedInstance(this).trackFragmentAppViewScreen();
     }

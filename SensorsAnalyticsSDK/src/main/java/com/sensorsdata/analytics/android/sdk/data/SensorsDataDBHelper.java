@@ -1,6 +1,6 @@
 /*
- * Created by wangzhuozhou on 2015/08/01.
- * Copyright 2015－2021 Sensors Data Inc.
+ * Created by guo on 2020/5/7.
+ * Copyright 2015－2021 Zall Data Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -38,7 +38,7 @@ class SensorsDataDBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        SALog.i(TAG, "Creating a new Sensors Analytics DB");
+        SALog.i(TAG, "Creating a new Zall Data DB");
 
         db.execSQL(CREATE_EVENTS_TABLE);
         db.execSQL(EVENTS_TIME_INDEX);
@@ -47,7 +47,7 @@ class SensorsDataDBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        SALog.i(TAG, "Upgrading app, replacing Sensors Analytics DB");
+        SALog.i(TAG, "Upgrading app, replacing Zall Data DB");
 
         db.execSQL(String.format("DROP TABLE IF EXISTS %s", DbParams.TABLE_EVENTS));
         db.execSQL(CREATE_EVENTS_TABLE);

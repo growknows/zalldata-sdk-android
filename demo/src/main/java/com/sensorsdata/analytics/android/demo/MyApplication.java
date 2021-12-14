@@ -1,6 +1,6 @@
 /*
- * Created by wangzhuozhou on 2016/11/12.
- * Copyright 2015－2021 Sensors Data Inc.
+ * Created by guo on 2020/4/20.
+ * Copyright 2015－2021 Zall Data Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,7 @@ import com.sensorsdata.analytics.android.sdk.SensorsDataAPI;
 
 public class MyApplication extends Application {
     /**
-     * Sensors Analytics 采集数据的地址
+     * Zall Data 采集数据的地址
      */
     private final static String SA_SERVER_URL = "https://sdkdebugtest.datasink.sensorsdata.cn/sa?project=default&token=cfb8b60e42e0ae9b";
 
@@ -35,7 +35,7 @@ public class MyApplication extends Application {
     }
 
     /**
-     * 初始化 Sensors Analytics SDK
+     * 初始化 Zall Data SDK
      */
     private void initSensorsDataAPI() {
         SAConfigOptions configOptions = new SAConfigOptions(SA_SERVER_URL);
@@ -46,7 +46,7 @@ public class MyApplication extends Application {
                 SensorsAnalyticsAutoTrackEventType.APP_CLICK);
         // 打开 crash 信息采集
         configOptions.enableTrackAppCrash();
-        //传入 SAConfigOptions 对象，初始化神策 SDK
+        //传入 SAConfigOptions 对象，初始化卓尔 SDK
         SensorsDataAPI.startWithConfigOptions(this, configOptions);
     }
 }

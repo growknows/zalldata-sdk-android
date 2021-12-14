@@ -1,6 +1,6 @@
 /*
- * Created by zhangxiangwei on 2020/02/26.
- * Copyright 2015－2021 Sensors Data Inc.
+ * Created by guo on 2020/1/26.
+ * Copyright 2015－2021 Zall Data Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.

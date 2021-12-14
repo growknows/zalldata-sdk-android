@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:gravity="center_horizontal"
-        android:text="请输入神策分析页面上的配对码"
+        android:text="请输入卓尔分析页面上的配对码"
         android:textColor="#000000"
         android:textSize="18sp" />
 

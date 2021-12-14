@@ -1,6 +1,6 @@
 /*
- * Created by dengshiwei on 2020/10/20.
- * Copyright 2015－2021 Sensors Data Inc.
+ * Created by guo on 2020/1/3.
+ * Copyright 2015－2021 Zall Data Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -209,7 +209,7 @@ abstract class AbstractSensorsDataAPI implements ISensorsDataAPI {
                 delayInitTask();
             }
             if (SALog.isLogEnabled()) {
-                SALog.i(TAG, String.format(Locale.CHINA, "Initialized the instance of Sensors Analytics SDK with server"
+                SALog.i(TAG, String.format(Locale.CHINA, "Initialized the instance of Zall Data SDK with server"
                         + " url '%s', flush interval %d ms, debugMode: %s", mServerUrl, mSAConfigOptions.mFlushInterval, debugMode));
             }
             mLoginId = DbAdapter.getInstance().getLoginId();
@@ -1241,7 +1241,7 @@ abstract class AbstractSensorsDataAPI implements ISensorsDataAPI {
                     if (mDebugMode == SensorsDataAPI.DebugMode.DEBUG_ONLY) {
                         info = "现在您打开了 SensorsData SDK 的 'DEBUG_ONLY' 模式，此模式下只校验数据但不导入数据，数据出错时会以 Toast 的方式提示开发者，请上线前一定使用 DEBUG_OFF 模式。";
                     } else if (mDebugMode == SensorsDataAPI.DebugMode.DEBUG_AND_TRACK) {
-                        info = "现在您打开了神策 SensorsData SDK 的 'DEBUG_AND_TRACK' 模式，此模式下校验数据并且导入数据，数据出错时会以 Toast 的方式提示开发者，请上线前一定使用 DEBUG_OFF 模式。";
+                        info = "现在您打开了卓尔 SensorsData SDK 的 'DEBUG_AND_TRACK' 模式，此模式下校验数据并且导入数据，数据出错时会以 Toast 的方式提示开发者，请上线前一定使用 DEBUG_OFF 模式。";
                     }
                     CharSequence appName = AppInfoUtils.getAppName(mContext);
                     if (!TextUtils.isEmpty(appName)) {

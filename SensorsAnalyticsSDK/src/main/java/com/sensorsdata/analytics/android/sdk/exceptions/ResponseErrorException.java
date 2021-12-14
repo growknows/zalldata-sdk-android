@@ -1,6 +1,6 @@
 /*
- * Created by wangzhuozhou on 2015/08/01.
- * Copyright 2015－2021 Sensors Data Inc.
+ * Created by guo on 2021/9/24.
+ * Copyright 2015－2021 Zall Data Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,7 +18,7 @@
 package com.sensorsdata.analytics.android.sdk.exceptions;
 
 /**
- * Sensors Analytics 返回数据收集异常
+ * Zall Data 返回数据收集异常
  */
 public class ResponseErrorException extends Exception {
     private int httpCode;

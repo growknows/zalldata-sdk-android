@@ -1,6 +1,6 @@
 /*
- * Created by chenru on 2020/09/09.
- * Copyright 2015－2021 Sensors Data Inc.
+ * Created by guo on 2020/9/29.
+ * Copyright 2015－2021 Zall Data Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -132,7 +132,7 @@ public class SensorsDataDialogUtils {
                                     loadingDialog.dismiss();
                                     if (response == null) {
                                         SALog.i(TAG, "ChannelDebug response error msg: response is null");
-                                        showDialog(activity, "添加白名单请求失败，请联系神策技术支持人员排查问题!");
+                                        showDialog(activity, "添加白名单请求失败，请联系卓尔技术支持人员排查问题!");
                                         return;
                                     }
                                     int code = response.optInt("code", 0);
@@ -140,7 +140,7 @@ public class SensorsDataDialogUtils {
                                         SensorsDataAutoTrackHelper.showChannelDebugActiveDialog(activity);
                                     } else {//请求失败
                                         SALog.i(TAG, "ChannelDebug response error msg:" + response.optString("message"));
-                                        showDialog(activity, "添加白名单请求失败，请联系神策技术支持人员排查问题!");
+                                        showDialog(activity, "添加白名单请求失败，请联系卓尔技术支持人员排查问题!");
                                     }
                                 }
                             });
@@ -263,7 +263,7 @@ public class SensorsDataDialogUtils {
                     } else if (mCurrentDebugMode == SensorsDataAPI.DebugMode.DEBUG_ONLY) {
                         currentDebugToastMsg = "开启调试模式，校验数据，但不进行数据导入；关闭 App 进程后，将自动关闭调试模式";
                     } else if (mCurrentDebugMode == SensorsDataAPI.DebugMode.DEBUG_AND_TRACK) {
-                        currentDebugToastMsg = "开启调试模式，校验数据，并将数据导入到神策分析中；关闭 App 进程后，将自动关闭调试模式";
+                        currentDebugToastMsg = "开启调试模式，校验数据，并将数据导入到卓尔分析中；关闭 App 进程后，将自动关闭调试模式";
                     }
                     Toast.makeText(activity, currentDebugToastMsg, Toast.LENGTH_LONG).show();
                     SALog.info(TAG, "您当前的调试模式是：" + mCurrentDebugMode, null);

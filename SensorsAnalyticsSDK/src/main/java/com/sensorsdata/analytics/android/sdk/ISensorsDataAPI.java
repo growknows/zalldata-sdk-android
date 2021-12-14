@@ -1,6 +1,6 @@
 /*
- * Created by wangzhuozhou on 2015/08/01.
- * Copyright 2015－2021 Sensors Data Inc.
+ * Created by guo on 2020/4/27.
+ * Copyright 2015－2021 Zall Data Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -533,7 +533,7 @@ public interface ISensorsDataAPI extends IFragmentAPI {
 
     /**
      * 用于在 App 首次启动时追踪渠道来源，并设置追踪渠道事件的属性。
-     * 这是 Sensors Analytics 进阶功能，请参考文档 https://sensorsdata.cn/manual/track_installation.html
+     * 这是 Zall Data 进阶功能，请参考文档 https://sensorsdata.cn/manual/track_installation.html
      *
      * @param eventName 渠道追踪事件的名称
      * @param properties 渠道追踪事件的属性
@@ -543,7 +543,7 @@ public interface ISensorsDataAPI extends IFragmentAPI {
 
     /**
      * 用于在 App 首次启动时追踪渠道来源，并设置追踪渠道事件的属性。
-     * 这是 Sensors Analytics 进阶功能，请参考文档 https://sensorsdata.cn/manual/track_installation.html
+     * 这是 Zall Data 进阶功能，请参考文档 https://sensorsdata.cn/manual/track_installation.html
      *
      * @param eventName 渠道追踪事件的名称
      * @param properties 渠道追踪事件的属性
@@ -552,7 +552,7 @@ public interface ISensorsDataAPI extends IFragmentAPI {
 
     /**
      * 用于在 App 首次启动时追踪渠道来源，并设置追踪渠道事件的属性。
-     * 这是 Sensors Analytics 进阶功能，请参考文档 https://sensorsdata.cn/manual/track_installation.html
+     * 这是 Zall Data 进阶功能，请参考文档 https://sensorsdata.cn/manual/track_installation.html
      *
      * @param eventName 渠道追踪事件的名称
      */
@@ -561,7 +561,7 @@ public interface ISensorsDataAPI extends IFragmentAPI {
     /**
      * 记录 $AppInstall 事件，用于在 App 首次启动时追踪渠道来源，并设置追踪渠道事件的属性。
      * 注意：如果之前使用 trackInstallation 触发的激活事件，需要继续保持原来的调用，无需改成 trackAppInstall，否则会导致激活事件数据分离。
-     * 这是 Sensors Analytics 进阶功能，请参考文档 https://sensorsdata.cn/manual/track_installation.html
+     * 这是 Zall Data 进阶功能，请参考文档 https://sensorsdata.cn/manual/track_installation.html
      *
      * @param properties 渠道追踪事件的属性
      * @param disableCallback 是否关闭这次渠道匹配的回调请求
@@ -571,7 +571,7 @@ public interface ISensorsDataAPI extends IFragmentAPI {
     /**
      * 记录 $AppInstall 事件，用于在 App 首次启动时追踪渠道来源，并设置追踪渠道事件的属性。
      * 注意：如果之前使用 trackInstallation 触发的激活事件，需要继续保持原来的调用，无需改成 trackAppInstall，否则会导致激活事件数据分离。
-     * 这是 Sensors Analytics 进阶功能，请参考文档 https://sensorsdata.cn/manual/track_installation.html
+     * 这是 Zall Data 进阶功能，请参考文档 https://sensorsdata.cn/manual/track_installation.html
      *
      * @param properties 渠道追踪事件的属性
      */
@@ -580,7 +580,7 @@ public interface ISensorsDataAPI extends IFragmentAPI {
     /**
      * 记录 $AppInstall 事件，用于在 App 首次启动时追踪渠道来源，并设置追踪渠道事件的属性。
      * 注意：如果之前使用 trackInstallation 触发的激活事件，需要继续保持原来的调用，无需改成 trackAppInstall，否则会导致激活事件数据分离。
-     * 这是 Sensors Analytics 进阶功能，请参考文档 https://sensorsdata.cn/manual/track_installation.html
+     * 这是 Zall Data 进阶功能，请参考文档 https://sensorsdata.cn/manual/track_installation.html
      */
     void trackAppInstall();
 
@@ -716,17 +716,17 @@ public interface ISensorsDataAPI extends IFragmentAPI {
     void trackViewAppClick(View view, JSONObject properties);
 
     /**
-     * 将所有本地缓存的日志发送到 Sensors Analytics.
+     * 将所有本地缓存的日志发送到 Zall Data.
      */
     void flush();
 
     /**
-     * 将所有本地缓存的日志发送到 Sensors Analytics.
+     * 将所有本地缓存的日志发送到 Zall Data.
      */
     void flushSync();
 
     /**
-     * 以轮询形式将所有本地缓存的日志发送到 Sensors Analytics.
+     * 以轮询形式将所有本地缓存的日志发送到 Zall Data.
      */
     void flushScheduled();
 

@@ -1,6 +1,6 @@
 /*
- * Created by wangzhuozhou on 2015/08/01.
- * Copyright 2015－2021 Sensors Data Inc.
+ * Created by guo on 2021/6/8.
+ * Copyright 2015－2021 Zall Data Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -67,7 +67,7 @@ import static com.sensorsdata.analytics.android.sdk.util.SADataHelper.assertProp
 import static com.sensorsdata.analytics.android.sdk.util.SADataHelper.assertValue;
 
 /**
- * Sensors Analytics SDK
+ * Zall Data SDK
  */
 public class SensorsDataAPI extends AbstractSensorsDataAPI {
     // 可视化埋点功能最低 API 版本
@@ -118,7 +118,7 @@ public class SensorsDataAPI extends AbstractSensorsDataAPI {
     }
 
     /**
-     * 初始化神策 SDK
+     * 初始化卓尔 SDK
      *
      * @param context App 的 Context
      * @param saConfigOptions SDK 的配置项
@@ -1844,7 +1844,7 @@ public class SensorsDataAPI extends AbstractSensorsDataAPI {
     }
 
     /**
-     * 将所有本地缓存的日志发送到 Sensors Analytics.
+     * 将所有本地缓存的日志发送到 Zall Data.
      */
     @Override
     public void flushSync() {
@@ -2390,7 +2390,7 @@ public class SensorsDataAPI extends AbstractSensorsDataAPI {
     }
 
     /**
-     * Debug 模式，用于检验数据导入是否正确。该模式下，事件会逐条实时发送到 Sensors Analytics，并根据返回值检查
+     * Debug 模式，用于检验数据导入是否正确。该模式下，事件会逐条实时发送到 Zall Data，并根据返回值检查
      * 数据导入是否正确。
      * Debug 模式的具体使用方式，请参考:
      * http://www.sensorsdata.cn/manual/debug_mode.html
