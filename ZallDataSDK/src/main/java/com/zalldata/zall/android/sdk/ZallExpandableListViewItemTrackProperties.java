@@ -1,5 +1,5 @@
 /*
- * Created by guo on 2021/1/5.
+ * Created by guo on 2020/5/8.
  * Copyright 2015－2021 Zall Data Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -20,12 +20,23 @@ package com.zalldata.zall.android.sdk;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public interface SensorsObjectTrackProperties {
+public interface ZallExpandableListViewItemTrackProperties {
     /**
-     * Object 扩展属性
+     * 点击 groupPosition、childPosition 处 item 的扩展属性
      *
+     * @param groupPosition int
+     * @param childPosition int
      * @return JSONObject
      * @throws JSONException JSONException
      */
-    JSONObject getSensorsTrackProperties() throws JSONException;
+    JSONObject getZallChildItemTrackProperties(int groupPosition, int childPosition) throws JSONException;
+
+    /**
+     * 点击 groupPosition 处 item 的扩展属性
+     *
+     * @param groupPosition int
+     * @return JSONObject
+     * @throws JSONException JSONException
+     */
+    JSONObject getZallGroupItemTrackProperties(int groupPosition) throws JSONException;
 }

@@ -35,7 +35,7 @@ import java.util.List;
 
 public class Frg_2 extends BaseAndroidXFragment {
 
-    private static final String TAG = "ZA.Sensors.ViewPger222";
+    private static final String TAG = "ZA.Zall.ViewPger222";
     private FragmentPagerAdapter pagerAdapter = null;
     private View view = null;
     private List<Fragment> listPagerViews = null;

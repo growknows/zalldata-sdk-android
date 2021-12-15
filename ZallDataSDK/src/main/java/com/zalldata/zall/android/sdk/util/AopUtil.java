@@ -250,9 +250,9 @@ public class AopUtil {
             }
 
             if (TextUtils.isEmpty(title) && fragment.getClass().isAnnotationPresent(ZallDataFragmentTitle.class)) {
-                ZallDataFragmentTitle sensorsDataFragmentTitle = fragment.getClass().getAnnotation(ZallDataFragmentTitle.class);
-                if (sensorsDataFragmentTitle != null) {
-                    title = sensorsDataFragmentTitle.title();
+                ZallDataFragmentTitle zallDataFragmentTitle = fragment.getClass().getAnnotation(ZallDataFragmentTitle.class);
+                if (zallDataFragmentTitle != null) {
+                    title = zallDataFragmentTitle.title();
                 }
             }
 

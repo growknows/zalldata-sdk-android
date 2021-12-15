@@ -117,8 +117,8 @@ public class DeepLinkManager {
 
     private static void trackDeepLinkLaunchEvent(final Context context, DeepLinkProcessor deepLink) {
         final JSONObject properties = new JSONObject();
-        final ZallDataAPI sensorsDataAPI = ((ZallDataAPI) ZallDataAPI.sharedInstance());
-        final boolean isDeepLinkInstallSource = deepLink instanceof ZallDataDeepLink && sensorsDataAPI.isDeepLinkInstallSource();
+        final ZallDataAPI zallDataAPI = ((ZallDataAPI) ZallDataAPI.sharedInstance());
+        final boolean isDeepLinkInstallSource = deepLink instanceof ZallDataDeepLink && zallDataAPI.isDeepLinkInstallSource();
         try {
             properties.put("$deeplink_url", deepLink.getDeepLinkUrl());
             properties.put("$time", new Date(System.currentTimeMillis()));
@@ -127,7 +127,7 @@ public class DeepLinkManager {
         }
         ZallDataUtils.mergeJSONObject(ChannelUtils.getLatestUtmProperties(), properties);
         ZallDataUtils.mergeJSONObject(ChannelUtils.getUtmProperties(), properties);
-        sensorsDataAPI.transformTaskQueue(new Runnable() {
+        zallDataAPI.transformTaskQueue(new Runnable() {
             @Override
             public void run() {
                 if (isDeepLinkInstallSource) {
@@ -138,7 +138,7 @@ public class DeepLinkManager {
                         ZALog.printStackTrace(e);
                     }
                 }
-                sensorsDataAPI.trackInternal("$AppDeeplinkLaunch", properties);
+                zallDataAPI.trackInternal("$AppDeeplinkLaunch", properties);
             }
         });
     }

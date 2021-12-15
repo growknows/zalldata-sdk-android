@@ -76,11 +76,11 @@ class AnalyticsMessages {
     /**
      * 不要直接调用，通过 getInstance 方法获取实例
      */
-    private AnalyticsMessages(final Context context, ZallDataAPI sensorsDataAPI) {
+    private AnalyticsMessages(final Context context, ZallDataAPI zallDataAPI) {
         mContext = context;
         mDbAdapter = DbAdapter.getInstance();
         mWorker = new Worker();
-        mZallDataAPI = sensorsDataAPI;
+        mZallDataAPI = zallDataAPI;
     }
 
     /**
@@ -88,12 +88,12 @@ class AnalyticsMessages {
      *
      * @param messageContext Context
      */
-    public static AnalyticsMessages getInstance(final Context messageContext, final ZallDataAPI sensorsDataAPI) {
+    public static AnalyticsMessages getInstance(final Context messageContext, final ZallDataAPI zallDataAPI) {
         synchronized (S_INSTANCES) {
             final Context appContext = messageContext.getApplicationContext();
             final AnalyticsMessages ret;
             if (!S_INSTANCES.containsKey(appContext)) {
-                ret = new AnalyticsMessages(appContext, sensorsDataAPI);
+                ret = new AnalyticsMessages(appContext, zallDataAPI);
                 S_INSTANCES.put(appContext, ret);
             } else {
                 ret = S_INSTANCES.get(appContext);

@@ -41,8 +41,8 @@ public class ZallDataRemoteManagerDebug extends BaseZallDataSDKRemoteManager {
     private static final String TAG = "ZA.ZallDataRemoteManagerDebug";
     private String errorMsg = "";
 
-    public ZallDataRemoteManagerDebug(ZallDataAPI sensorsDataAPI) {
-        super(sensorsDataAPI);
+    public ZallDataRemoteManagerDebug(ZallDataAPI zallDataAPI) {
+        super(zallDataAPI);
         ZALog.i(TAG, "remote config: Construct a ZallDataRemoteManagerDebug");
     }
 

@@ -1,5 +1,5 @@
 /*
- * Created by guo on 2021/2/9.
+ * Created by guo on 2020/6/29.
  * Copyright 2015－2021 Zall Data Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -17,19 +17,22 @@
 
 package com.zalldata.zall.android.sdk;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 /**
- * 获取 ListView、GridView position 位置 Item 的 properties
+ * 网络类型
  */
-public interface SensorsAdapterViewItemTrackProperties {
-    /**
-     * 点击 position 处 item 的扩展属性
-     *
-     * @param position 当前 item 所在位置
-     * @return JSONObject
-     * @throws JSONException JSON 异常
-     */
-    JSONObject getSensorsItemTrackProperties(int position) throws JSONException;
+public interface ZallNetworkType {
+    // NULL
+    int TYPE_NONE = 0;
+    // 2G
+    int TYPE_2G = 1;
+    // 3G
+    int TYPE_3G = 1 << 1;
+    // 4G
+    int TYPE_4G = 1 << 2;
+    // WIFI
+    int TYPE_WIFI = 1 << 3;
+    // 5G
+    int TYPE_5G = 1 << 4;
+    // ALL
+    int TYPE_ALL = 0xFF;
 }

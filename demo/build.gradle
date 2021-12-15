@@ -5,6 +5,7 @@ apply plugin: 'com.sensorsdata.analytics.android'
 
 
 
+
 android {
     compileSdkVersion 30
 
@@ -26,7 +27,7 @@ android {
         enabled true
     }
 
-//    sensorsAnalytics {
+//    zallAnalytics {
 //        debug = true
 //    }
 

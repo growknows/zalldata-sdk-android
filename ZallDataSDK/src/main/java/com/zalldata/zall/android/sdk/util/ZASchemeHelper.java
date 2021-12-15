@@ -53,7 +53,7 @@ public class ZASchemeHelper {
                 uri = intent.getData();
             }
             if (uri != null) {
-                ZallDataAPI sensorsDataAPI = ZallDataAPI.sharedInstance();
+                ZallDataAPI zallDataAPI = ZallDataAPI.sharedInstance();
                 String host = uri.getHost();
                 if ("heatmap".equals(host)) {
                     String featureCode = uri.getQueryParameter("feature_code");
@@ -94,8 +94,8 @@ public class ZASchemeHelper {
                     String tip;
                     if (TextUtils.isEmpty(version) || TextUtils.isEmpty(key)) {
                         tip = "密钥验证不通过，所选密钥无效";
-                    } else if (sensorsDataAPI.getZallDataEncrypt() != null) {
-                        tip = sensorsDataAPI.getZallDataEncrypt().checkPublicSecretKey(version, key, symmetricEncryptType, asymmetricEncryptType);
+                    } else if (zallDataAPI.getZallDataEncrypt() != null) {
+                        tip = zallDataAPI.getZallDataEncrypt().checkPublicSecretKey(version, key, symmetricEncryptType, asymmetricEncryptType);
                     } else {
                         tip = "当前 App 未开启加密，请开启加密后再试";
                     }
@@ -140,7 +140,7 @@ public class ZASchemeHelper {
                     intent.setData(null);
                 } else if ("abtest".equals(host)) {
                     try {
-                        ReflectUtil.callStaticMethod(Class.forName("com.zalldata.abtest.core.SensorsABTestSchemeHandler"), "handleSchemeUrl", uri.toString());
+                        ReflectUtil.callStaticMethod(Class.forName("com.zalldata.abtest.core.ZallABTestSchemeHandler"), "handleSchemeUrl", uri.toString());
                     } catch (Exception e) {
                         ZALog.printStackTrace(e);
                     }
@@ -149,18 +149,18 @@ public class ZASchemeHelper {
                 } else if ("zalldataremoteconfig".equals(host)) {
                     // 开启日志
                     ZallDataAPI.sharedInstance().enableLog(true);
-                    BaseZallDataSDKRemoteManager sensorsDataSDKRemoteManager = sensorsDataAPI.getRemoteManager();
+                    BaseZallDataSDKRemoteManager zallDataSDKRemoteManager = zallDataAPI.getRemoteManager();
                     // 取消重试
-                    if (sensorsDataSDKRemoteManager != null) {
-                        sensorsDataSDKRemoteManager.resetPullSDKConfigTimer();
+                    if (zallDataSDKRemoteManager != null) {
+                        zallDataSDKRemoteManager.resetPullSDKConfigTimer();
                     }
-                    final ZallDataRemoteManagerDebug sensorsDataRemoteManagerDebug =
-                            new ZallDataRemoteManagerDebug(sensorsDataAPI);
+                    final ZallDataRemoteManagerDebug zallDataRemoteManagerDebug =
+                            new ZallDataRemoteManagerDebug(zallDataAPI);
                     // 替换为 ZallDataRemoteManagerDebug 对象
-                    sensorsDataAPI.setRemoteManager(sensorsDataRemoteManagerDebug);
+                    zallDataAPI.setRemoteManager(zallDataRemoteManagerDebug);
                     // 验证远程配置
                     ZALog.i(TAG, "Start debugging remote config");
-                    sensorsDataRemoteManagerDebug.checkRemoteConfig(uri, activity);
+                    zallDataRemoteManagerDebug.checkRemoteConfig(uri, activity);
                     intent.setData(null);
                 } else if ("assistant".equals(host)) {
                     ZAConfigOptions configOptions = ZallDataAPI.getConfigOptions();

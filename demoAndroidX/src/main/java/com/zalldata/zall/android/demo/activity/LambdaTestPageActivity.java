@@ -216,8 +216,8 @@ public class LambdaTestPageActivity extends AppCompatActivity {
 
     private void handleExpandableListView() {
         final String[] groups = new String[]{"卓尔数据", "卓尔数据", "卓尔数据", "卓尔数据"};
-        final String[][] childs = new String[][]{{"Zall Data", "Sensors Focus", "Sensors Personas", "Sensors Recommender", "Sensors Journey"}, {"Sensors Data Governor", "Sensors Point", "Sensors Personalization Engine",
-                "Sensors Platform"}, {"Sensors School", "Sensors Data Library", "ZA 分析师认证", "ZA 分析专家认证"}, {"Sensors Data Open Source", "Sensors Data"}};
+        final String[][] childs = new String[][]{{"Zall Data", "Zall Focus", "Zall Personas", "Zall Recommender", "Zall Journey"}, {"Zall Data Governor", "Zall Point", "Zall Personalization Engine",
+                "Zall Platform"}, {"Zall School", "Zall Data Library", "ZA 分析师认证", "ZA 分析专家认证"}, {"Zall Data Open Source", "Zall Data"}};
         ExpandableListView expandableListView = findViewById(R.id.expandableListView);
         expandableListView.setAdapter(new BaseExpandableListAdapter() {
             @Override

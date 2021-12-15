@@ -1,6 +1,6 @@
 /*
  * Created by chenru on 2019/06/20.
- * Copyright 2015－2021 Sensors Data Inc.
+ * Copyright 2015－2021 Zall Data Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -51,7 +51,7 @@ class H5Activity : BaseActivity() {
         }
 
         x5WebView.loadUrl("file:///android_asset/new_h5_test/index.html")
-        //x5WebView.addJavascriptInterface(JsObject(), "sensorsDataObj")
+        //x5WebView.addJavascriptInterface(JsObject(), "zallDataObj")
 //        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
 //            webView.settings.mixedContentMode = WebSettings.MIXED_CONTENT_ALWAYS_ALLOW
 //        }

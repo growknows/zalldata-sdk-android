@@ -200,7 +200,7 @@ public class ZallDataAPITest {
             // loginId 未登录时为空
             assertNull(loginId);
             // 登录
-            String userId = "sensors_data_cn";
+            String userId = "zall_data_cn";
             ZallDataAPI.sharedInstance().login(userId);
             Thread.sleep(1000);
             loginId = ZallDataAPI.sharedInstance().getLoginId();
@@ -230,7 +230,7 @@ public class ZallDataAPITest {
             // loginId 未登录时 匿名 Id 和 Distinct_id 相同
             assertEquals(anonymousId, distinct_id);
             // 登录
-            String userId = "sensors_data_cn";
+            String userId = "zall_data_cn";
             ZallDataAPI.sharedInstance().login(userId);
             Thread.sleep(1000);
             loginId = ZallDataAPI.sharedInstance().getLoginId();
@@ -357,9 +357,9 @@ public class ZallDataAPITest {
     public void assertValueTest() {
         try {
             Context context = ApplicationProvider.getApplicationContext();
-            ZAConfigOptions saConfigOptions = new ZAConfigOptions("");
-            saConfigOptions.enableLog(true);
-            ZallDataAPI.startWithConfigOptions(context, saConfigOptions);
+            ZAConfigOptions zaConfigOptions = new ZAConfigOptions("");
+            zaConfigOptions.enableLog(true);
+            ZallDataAPI.startWithConfigOptions(context, zaConfigOptions);
             ZallDataAPI.sharedInstance().identify("");
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -374,14 +374,14 @@ public class ZallDataAPITest {
             final int FLUSH_BULK_SIZE = 60;
             final int FLUSH_INTERVAL = 6 * 1000;
             final long MAX_CACHE_SIZE = 24 * 1024 * 1024L;
-            final int NETWORK_TYPE = SensorsNetworkType.TYPE_WIFI;
+            final int NETWORK_TYPE = ZallNetworkType.TYPE_WIFI;
             final int AUTO_TRACK_EVENT_TYPE = ZallDataAPI.AutoTrackEventType.APP_CLICK.getEventValue();
             final boolean FLAG = false;
 
             Context context = ApplicationProvider.getApplicationContext();
 
-            ZAConfigOptions saConfigOptions = new ZAConfigOptions("");
-            saConfigOptions.enableLog(IS_LOG_ENABLE)
+            ZAConfigOptions zaConfigOptions = new ZAConfigOptions("");
+            zaConfigOptions.enableLog(IS_LOG_ENABLE)
                     .setFlushBulkSize(FLUSH_BULK_SIZE)
                     .setFlushInterval(FLUSH_INTERVAL)
                     .setMaxCacheSize(MAX_CACHE_SIZE)
@@ -392,7 +392,7 @@ public class ZallDataAPITest {
                     .enableHeatMap(FLAG)
                     .enableTrackAppCrash();
 
-            ZallDataAPI.sharedInstance().startWithConfigOptions(context, saConfigOptions);
+            ZallDataAPI.sharedInstance().startWithConfigOptions(context, zaConfigOptions);
 
             assertEquals(FLUSH_BULK_SIZE, ZallDataAPI.sharedInstance().getFlushBulkSize());
             assertEquals(FLUSH_INTERVAL, ZallDataAPI.sharedInstance().getFlushInterval());

@@ -192,10 +192,10 @@ public class ZallDataAutoTrackHelper {
             // 扩展属性
             ExpandableListAdapter listAdapter = expandableListView.getExpandableListAdapter();
             if (listAdapter != null) {
-                if (listAdapter instanceof SensorsExpandableListViewItemTrackProperties) {
+                if (listAdapter instanceof ZallExpandableListViewItemTrackProperties) {
                     try {
-                        SensorsExpandableListViewItemTrackProperties trackProperties = (SensorsExpandableListViewItemTrackProperties) listAdapter;
-                        JSONObject jsonObject = trackProperties.getSensorsGroupItemTrackProperties(groupPosition);
+                        ZallExpandableListViewItemTrackProperties trackProperties = (ZallExpandableListViewItemTrackProperties) listAdapter;
+                        JSONObject jsonObject = trackProperties.getZallGroupItemTrackProperties(groupPosition);
                         if (jsonObject != null) {
                             AopUtil.mergeJSONObject(jsonObject, properties);
                         }
@@ -279,9 +279,9 @@ public class ZallDataAutoTrackHelper {
             //扩展属性
             ExpandableListAdapter listAdapter = expandableListView.getExpandableListAdapter();
             if (listAdapter != null) {
-                if (listAdapter instanceof SensorsExpandableListViewItemTrackProperties) {
-                    SensorsExpandableListViewItemTrackProperties trackProperties = (SensorsExpandableListViewItemTrackProperties) listAdapter;
-                    JSONObject jsonObject = trackProperties.getSensorsChildItemTrackProperties(groupPosition, childPosition);
+                if (listAdapter instanceof ZallExpandableListViewItemTrackProperties) {
+                    ZallExpandableListViewItemTrackProperties trackProperties = (ZallExpandableListViewItemTrackProperties) listAdapter;
+                    JSONObject jsonObject = trackProperties.getZallChildItemTrackProperties(groupPosition, childPosition);
                     if (jsonObject != null) {
                         AopUtil.mergeJSONObject(jsonObject, properties);
                     }
@@ -1147,10 +1147,10 @@ public class ZallDataAutoTrackHelper {
                 adapter = ((HeaderViewListAdapter) adapter).getWrappedAdapter();
             }
 
-            if (adapter instanceof SensorsAdapterViewItemTrackProperties) {
+            if (adapter instanceof ZallAdapterViewItemTrackProperties) {
                 try {
-                    SensorsAdapterViewItemTrackProperties objectProperties = (SensorsAdapterViewItemTrackProperties) adapter;
-                    JSONObject jsonObject = objectProperties.getSensorsItemTrackProperties(position);
+                    ZallAdapterViewItemTrackProperties objectProperties = (ZallAdapterViewItemTrackProperties) adapter;
+                    JSONObject jsonObject = objectProperties.getZallItemTrackProperties(position);
                     if (jsonObject != null) {
                         AopUtil.mergeJSONObject(jsonObject, properties);
                     }

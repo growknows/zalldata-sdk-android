@@ -154,8 +154,8 @@ import java.lang.ref.WeakReference;
     @JavascriptInterface
     public boolean zalldata_abtest_module() {
         try {
-            Class<?> sensorsABTestClass = ReflectUtil.getCurrentClass(new String[]{"com.zalldata.abtest.SensorsABTest"});
-            Object object = ReflectUtil.callStaticMethod(sensorsABTestClass, "shareInstance");
+            Class<?> zallABTestClass = ReflectUtil.getCurrentClass(new String[]{"com.zalldata.abtest.ZallABTest"});
+            Object object = ReflectUtil.callStaticMethod(zallABTestClass, "shareInstance");
             return object != null;
         } catch (Exception e) {
             ZALog.printStackTrace(e);

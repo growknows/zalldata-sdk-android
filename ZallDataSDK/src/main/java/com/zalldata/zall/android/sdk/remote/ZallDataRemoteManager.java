@@ -45,8 +45,8 @@ public class ZallDataRemoteManager extends BaseZallDataSDKRemoteManager {
     private CountDownTimer mPullSDKConfigCountDownTimer;
 
     public ZallDataRemoteManager(
-            ZallDataAPI sensorsDataAPI) {
-        super(sensorsDataAPI);
+            ZallDataAPI zallDataAPI) {
+        super(zallDataAPI);
         ZALog.i(TAG, "Construct a ZallDataRemoteManager");
     }
 

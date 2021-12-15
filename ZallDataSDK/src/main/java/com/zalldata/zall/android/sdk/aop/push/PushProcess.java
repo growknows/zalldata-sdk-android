@@ -46,7 +46,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class PushProcess {
     private static final String ZA_PUSH_ID = "ZA_PUSH_ID";
-    private static final String DIR_NAME = "sensors.push";
+    private static final String DIR_NAME = "zall.push";
     private static final String TAG = "ZA.NotificationProcessor";
     private final static int GT_PUSH_MSG = 1;
     private static PushProcess INSTANCE;

@@ -74,9 +74,9 @@ public class VisualPropertiesManager {
         private static VisualPropertiesManager INSTANCE = new VisualPropertiesManager();
     }
 
-    public void requestVisualConfig(Context context, ZallDataAPI sensorsDataAPI) {
+    public void requestVisualConfig(Context context, ZallDataAPI zallDataAPI) {
         try {
-            if (sensorsDataAPI == null || !sensorsDataAPI.isNetworkRequestEnable()) {
+            if (zallDataAPI == null || !zallDataAPI.isNetworkRequestEnable()) {
                 ZALog.i(TAG, "Close network request");
                 return;
             }

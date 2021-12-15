@@ -51,12 +51,12 @@ public abstract class BaseZallDataSDKRemoteManager {
     protected static ZallDataSDKRemoteConfig mSDKRemoteConfig;
     protected ZallDataAPI mZallDataAPI;
 
-    protected BaseZallDataSDKRemoteManager(ZallDataAPI sensorsDataAPI) {
-        this.mZallDataAPI = sensorsDataAPI;
-        this.mContext = sensorsDataAPI.getContext();
-        this.mZAConfigOptions = sensorsDataAPI.getConfigOptions();
-        this.mZallDataEncrypt = sensorsDataAPI.getZallDataEncrypt();
-        this.mDisableDefaultRemoteConfig = sensorsDataAPI.isDisableDefaultRemoteConfig();
+    protected BaseZallDataSDKRemoteManager(ZallDataAPI zallDataAPI) {
+        this.mZallDataAPI = zallDataAPI;
+        this.mContext = zallDataAPI.getContext();
+        this.mZAConfigOptions = zallDataAPI.getConfigOptions();
+        this.mZallDataEncrypt = zallDataAPI.getZallDataEncrypt();
+        this.mDisableDefaultRemoteConfig = zallDataAPI.isDisableDefaultRemoteConfig();
     }
 
 

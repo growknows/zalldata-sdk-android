@@ -121,20 +121,20 @@ public class ZallDataAPI extends AbstractZallDataAPI {
      * 初始化卓尔 SDK
      *
      * @param context App 的 Context
-     * @param saConfigOptions SDK 的配置项
+     * @param zaConfigOptions SDK 的配置项
      */
-    public static void startWithConfigOptions(Context context, ZAConfigOptions saConfigOptions) {
-        if (context == null || saConfigOptions == null) {
+    public static void startWithConfigOptions(Context context, ZAConfigOptions zaConfigOptions) {
+        if (context == null || zaConfigOptions == null) {
             throw new NullPointerException("Context、ZAConfigOptions 不可以为 null");
         }
-        ZallDataAPI sensorsDataAPI = getInstance(context, DebugMode.DEBUG_OFF, saConfigOptions);
-        if (!sensorsDataAPI.mSDKConfigInit) {
-            sensorsDataAPI.applyZAConfigOptions();
+        ZallDataAPI zallDataAPI = getInstance(context, DebugMode.DEBUG_OFF, zaConfigOptions);
+        if (!zallDataAPI.mSDKConfigInit) {
+            zallDataAPI.applyZAConfigOptions();
         }
     }
 
     private static ZallDataAPI getInstance(Context context, DebugMode debugMode,
-                                              ZAConfigOptions saConfigOptions) {
+                                              ZAConfigOptions zaConfigOptions) {
         if (null == context) {
             return new ZallDataAPIEmptyImplementation();
         }
@@ -143,7 +143,7 @@ public class ZallDataAPI extends AbstractZallDataAPI {
             final Context appContext = context.getApplicationContext();
             ZallDataAPI instance = sInstanceMap.get(appContext);
             if (null == instance) {
-                instance = new ZallDataAPI(appContext, saConfigOptions, debugMode);
+                instance = new ZallDataAPI(appContext, zaConfigOptions, debugMode);
                 sInstanceMap.put(appContext, instance);
                 if (context instanceof Activity) {
                     instance.delayExecution((Activity) context);
@@ -179,37 +179,37 @@ public class ZallDataAPI extends AbstractZallDataAPI {
     public static void disableSDK() {
         ZALog.i(TAG, "call static function disableSDK");
         try {
-            final ZallDataAPI sensorsDataAPI = sharedInstance();
-            if (sensorsDataAPI instanceof ZallDataAPIEmptyImplementation ||
+            final ZallDataAPI zallDataAPI = sharedInstance();
+            if (zallDataAPI instanceof ZallDataAPIEmptyImplementation ||
                     getConfigOptions() == null ||
                     getConfigOptions().isDisableSDK) {
                 return;
             }
             final boolean isFromObserver = !ZallDataContentObserver.isDisableFromObserver;
-            sensorsDataAPI.transformTaskQueue(new Runnable() {
+            zallDataAPI.transformTaskQueue(new Runnable() {
                 @Override
                 public void run() {
                     if (isFromObserver) {
-                        sensorsDataAPI.trackInternal("$AppDataTrackingClose", null);
+                        zallDataAPI.trackInternal("$AppDataTrackingClose", null);
                     }
                 }
             });
             //禁止网络
-            if (sensorsDataAPI.isNetworkRequestEnable()) {
-                sensorsDataAPI.enableNetworkRequest(false);
+            if (zallDataAPI.isNetworkRequestEnable()) {
+                zallDataAPI.enableNetworkRequest(false);
                 isChangeEnableNetworkFlag = true;
             } else {
                 isChangeEnableNetworkFlag = false;
             }
             //关闭网络监听
-            sensorsDataAPI.unregisterNetworkListener();
-            sensorsDataAPI.clearTrackTimer();
+            zallDataAPI.unregisterNetworkListener();
+            zallDataAPI.clearTrackTimer();
             DbAdapter.getInstance().commitAppStartTime(0);
             getConfigOptions().disableSDK(true);
             //关闭日志
             ZALog.setDisableSDK(true);
             if (!ZallDataContentObserver.isDisableFromObserver) {
-                sensorsDataAPI.getContext().getContentResolver().notifyChange(DbParams.getInstance().getDisableSDKUri(), null);
+                zallDataAPI.getContext().getContentResolver().notifyChange(DbParams.getInstance().getDisableSDKUri(), null);
             }
             ZallDataContentObserver.isDisableFromObserver = false;
         } catch (Exception e) {
@@ -223,8 +223,8 @@ public class ZallDataAPI extends AbstractZallDataAPI {
     public static void enableSDK() {
         ZALog.i(TAG, "call static function enableSDK");
         try {
-            ZallDataAPI sensorsDataAPI = getSDKInstance();
-            if (sensorsDataAPI instanceof ZallDataAPIEmptyImplementation ||
+            ZallDataAPI zallDataAPI = getSDKInstance();
+            if (zallDataAPI instanceof ZallDataAPIEmptyImplementation ||
                     getConfigOptions() == null ||
                     !getConfigOptions().isDisableSDK) {
                 return;
@@ -233,15 +233,15 @@ public class ZallDataAPI extends AbstractZallDataAPI {
             try {
                 //开启日志
                 ZALog.setDisableSDK(false);
-                sensorsDataAPI.enableLog(ZALog.isLogEnabled());
+                zallDataAPI.enableLog(ZALog.isLogEnabled());
                 ZALog.i(TAG, "enableSDK, enable log");
-                if (sensorsDataAPI.mFirstDay.get() == null) {
-                    sensorsDataAPI.mFirstDay.commit(TimeUtils.formatTime(System.currentTimeMillis(), TimeUtils.YYYY_MM_DD));
+                if (zallDataAPI.mFirstDay.get() == null) {
+                    zallDataAPI.mFirstDay.commit(TimeUtils.formatTime(System.currentTimeMillis(), TimeUtils.YYYY_MM_DD));
                 }
-                sensorsDataAPI.delayInitTask();
+                zallDataAPI.delayInitTask();
                 //开启网络请求
                 if (isChangeEnableNetworkFlag) {
-                    sensorsDataAPI.enableNetworkRequest(true);
+                    zallDataAPI.enableNetworkRequest(true);
                     isChangeEnableNetworkFlag = false;
                 }
                 //重新请求可视化全埋点
@@ -249,13 +249,13 @@ public class ZallDataAPI extends AbstractZallDataAPI {
                     VisualPropertiesManager.getInstance().requestVisualConfig();
                 }
                 //重新请求采集控制
-                sensorsDataAPI.getRemoteManager().pullSDKConfigFromServer();
+                zallDataAPI.getRemoteManager().pullSDKConfigFromServer();
             } catch (Exception e) {
                 ZALog.printStackTrace(e);
             }
 
             if (!ZallDataContentObserver.isEnableFromObserver) {
-                sensorsDataAPI.getContext().getContentResolver().notifyChange(DbParams.getInstance().getEnableSDKUri(), null);
+                zallDataAPI.getContext().getContentResolver().notifyChange(DbParams.getInstance().getEnableSDKUri(), null);
             }
             ZallDataContentObserver.isEnableFromObserver = false;
         } catch (Exception e) {
@@ -1767,9 +1767,9 @@ public class ZallDataAPI extends AbstractZallDataAPI {
                     String title = null;
 
                     if (fragment.getClass().isAnnotationPresent(ZallDataFragmentTitle.class)) {
-                        ZallDataFragmentTitle sensorsDataFragmentTitle = fragment.getClass().getAnnotation(ZallDataFragmentTitle.class);
-                        if (sensorsDataFragmentTitle != null) {
-                            title = sensorsDataFragmentTitle.title();
+                        ZallDataFragmentTitle zallDataFragmentTitle = fragment.getClass().getAnnotation(ZallDataFragmentTitle.class);
+                        if (zallDataFragmentTitle != null) {
+                            title = zallDataFragmentTitle.title();
                         }
                     }
 

@@ -36,9 +36,9 @@ class EncryptDataOperation extends DataOperation {
 
     private ZallDataEncrypt mZallDataEncrypt;
 
-    EncryptDataOperation(Context context, ZallDataEncrypt sensorsDataEncrypt) {
+    EncryptDataOperation(Context context, ZallDataEncrypt zallDataEncrypt) {
         super(context);
-        this.mZallDataEncrypt = sensorsDataEncrypt;
+        this.mZallDataEncrypt = zallDataEncrypt;
     }
 
     @Override

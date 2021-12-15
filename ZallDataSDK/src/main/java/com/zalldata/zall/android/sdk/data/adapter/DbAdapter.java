@@ -32,10 +32,10 @@ public class DbAdapter {
     private DataOperation mTrackEventOperation;
     private DataOperation mPersistentOperation;
 
-    private DbAdapter(Context context, String packageName, ZallDataEncrypt sensorsDataEncrypt) {
+    private DbAdapter(Context context, String packageName, ZallDataEncrypt zallDataEncrypt) {
         mDbParams = DbParams.getInstance(packageName);
-        if (sensorsDataEncrypt != null) {
-            mTrackEventOperation = new EncryptDataOperation(context.getApplicationContext(), sensorsDataEncrypt);
+        if (zallDataEncrypt != null) {
+            mTrackEventOperation = new EncryptDataOperation(context.getApplicationContext(), zallDataEncrypt);
         } else {
             mTrackEventOperation = new EventDataOperation(context.getApplicationContext());
         }
@@ -43,9 +43,9 @@ public class DbAdapter {
     }
 
     public static DbAdapter getInstance(Context context, String packageName,
-                                        ZallDataEncrypt sensorsDataEncrypt) {
+                                        ZallDataEncrypt zallDataEncrypt) {
         if (instance == null) {
-            instance = new DbAdapter(context, packageName, sensorsDataEncrypt);
+            instance = new DbAdapter(context, packageName, zallDataEncrypt);
         }
         return instance;
     }

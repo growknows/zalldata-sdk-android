@@ -122,7 +122,7 @@ abstract class AbstractZAConfigOptions {
     /**
      * 网络上传策略
      */
-    int mNetworkTypePolicy = SensorsNetworkType.TYPE_3G | SensorsNetworkType.TYPE_4G | SensorsNetworkType.TYPE_WIFI | SensorsNetworkType.TYPE_5G;
+    int mNetworkTypePolicy = ZallNetworkType.TYPE_3G | ZallNetworkType.TYPE_4G | ZallNetworkType.TYPE_WIFI | ZallNetworkType.TYPE_5G;
 
     /**
      * AnonymousId，匿名 ID

@@ -334,7 +334,7 @@ public class ZallDataContentProviderTest {
 
         {
             // login id test
-            String userId = "sensors_data_cn";
+            String userId = "zall_data_cn";
             ContentValues contentValues = new ContentValues();
             contentValues.put(DbParams.TABLE_LOGIN_ID, userId);
             Uri uri = resolver.insert(dbParams.getLoginIdUri(), contentValues);
