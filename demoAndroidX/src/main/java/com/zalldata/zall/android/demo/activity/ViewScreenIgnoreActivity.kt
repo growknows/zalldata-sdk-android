@@ -19,7 +19,7 @@ package com.zalldata.zall.android.demo.activity
 
 import android.os.Bundle
 import com.zalldata.zall.android.demo.R
-import com.zalldata.zall.android.sdk.ZallDataIgnoreTrackAppViewScreen
+import com.zalldata.analytics.android.sdk.ZallDataIgnoreTrackAppViewScreen
 import kotlinx.android.synthetic.main.activity_view_screen.*
 
 @ZallDataIgnoreTrackAppViewScreen

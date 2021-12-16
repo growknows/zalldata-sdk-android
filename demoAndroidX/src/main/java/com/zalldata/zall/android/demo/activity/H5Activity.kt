@@ -24,8 +24,8 @@ import com.zalldata.zall.android.demo.widget.AAWebView
 import com.zalldata.zall.android.demo.widget.AAX5WebView
 import com.zalldata.zall.android.demo.widget.AWebView
 import com.zalldata.zall.android.demo.widget.AX5WebView
-import com.zalldata.zall.android.sdk.ZALog
-import com.zalldata.zall.android.sdk.ZallDataAPI
+import com.zalldata.analytics.android.sdk.ZALog
+import com.zalldata.analytics.android.sdk.ZallDataAPI
 import com.tencent.smtt.sdk.WebChromeClient
 import com.tencent.smtt.sdk.WebView
 import kotlinx.android.synthetic.main.activity_h5.*

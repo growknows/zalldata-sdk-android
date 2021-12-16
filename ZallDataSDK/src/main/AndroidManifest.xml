@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.zalldata.zall.android.sdk">
+    package="com.zalldata.analytics.android.sdk">
 
     <!-- 同步数据需要网络权限 -->
     <uses-permission android:name="android.permission.INTERNET" />
@@ -12,7 +12,7 @@
 
     <application>
         <provider
-            android:name="com.zalldata.zall.android.sdk.data.ZallDataContentProvider"
+            android:name="com.zalldata.analytics.android.sdk.data.ZallDataContentProvider"
             android:authorities="${applicationId}.ZallDataContentProvider"
             android:enabled="true"
             android:exported="false" />

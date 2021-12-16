@@ -17,7 +17,7 @@ import android.widget.Toast;
 
 import com.zalldata.zall.android.demo.R;
 import com.zalldata.zall.android.demo.utils.SPUtils;
-import com.zalldata.zall.android.sdk.util.ZallDataUtils;
+import com.zalldata.analytics.android.sdk.util.ZallDataUtils;
 
 import org.jetbrains.annotations.Nullable;
 

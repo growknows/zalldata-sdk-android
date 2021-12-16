@@ -30,7 +30,7 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.zalldata.zall.android.sdk.ZALog;
+import com.zalldata.analytics.android.sdk.ZALog;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;

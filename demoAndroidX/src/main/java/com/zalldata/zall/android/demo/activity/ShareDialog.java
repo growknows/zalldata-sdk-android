@@ -29,7 +29,7 @@ import androidx.appcompat.app.AppCompatDialogFragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.zalldata.zall.android.demo.R;
-import com.zalldata.zall.android.sdk.ZallDataAutoTrackHelper;
+import com.zalldata.analytics.android.sdk.ZallDataAutoTrackHelper;
 
 public class ShareDialog extends AppCompatDialogFragment {
 

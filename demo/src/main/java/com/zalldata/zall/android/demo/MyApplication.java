@@ -18,9 +18,9 @@ package com.zalldata.zall.android.demo;
 
 import android.app.Application;
 
-import com.zalldata.zall.android.sdk.ZAConfigOptions;
-import com.zalldata.zall.android.sdk.ZallDataAutoTrackEventType;
-import com.zalldata.zall.android.sdk.ZallDataAPI;
+import com.zalldata.analytics.android.sdk.ZAConfigOptions;
+import com.zalldata.analytics.android.sdk.ZallDataAutoTrackEventType;
+import com.zalldata.analytics.android.sdk.ZallDataAPI;
 
 public class MyApplication extends Application {
     /**

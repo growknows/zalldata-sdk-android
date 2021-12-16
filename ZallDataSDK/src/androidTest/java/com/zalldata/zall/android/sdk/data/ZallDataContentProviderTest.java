@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package com.zalldata.zall.android.sdk.data;
+package com.zalldata.analytics.android.sdk.data;
 
 import android.content.ContentResolver;
 import android.content.ContentUris;
@@ -29,7 +29,7 @@ import androidx.test.core.app.ApplicationProvider;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.rule.provider.ProviderTestRule;
 
-import com.zalldata.zall.android.sdk.data.adapter.DbParams;
+import com.zalldata.analytics.android.sdk.data.adapter.DbParams;
 
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -51,7 +51,7 @@ public class ZallDataContentProviderTest {
 
     @Rule
     public ProviderTestRule mProviderRule =
-            new ProviderTestRule.Builder(ZallDataContentProvider.class, "com.zalldata.zall.android.sdk.test.ZallDataContentProvider")
+            new ProviderTestRule.Builder(ZallDataContentProvider.class, "com.zalldata.analytics.android.sdk.test.ZallDataContentProvider")
                     .build();
 
     @BeforeClass
@@ -67,7 +67,7 @@ public class ZallDataContentProviderTest {
     @Test
     public void testCRUD() {
         //clear data
-        SharedPreferences sharedPreferences = context.getSharedPreferences("com.zalldata.zall.android.sdk.ZallDataAPI", Context.MODE_PRIVATE);
+        SharedPreferences sharedPreferences = context.getSharedPreferences("com.zalldata.analytics.android.sdk.ZallDataAPI", Context.MODE_PRIVATE);
         sharedPreferences.edit().clear().apply();
         mProviderRule.runDatabaseCommands(DbParams.DATABASE_NAME, "DROP TABLE IF EXISTS " + DbParams.TABLE_EVENTS);
         ContentResolver resolver = mProviderRule.getResolver();

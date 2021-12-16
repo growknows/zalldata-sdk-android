@@ -20,7 +20,7 @@
         android:background="#000000"
         android:gravity="center_horizontal" />
 
-    <com.zalldata.zall.android.sdk.visual.view.PairingCodeEditText
+    <com.zalldata.analytics.android.sdk.visual.view.PairingCodeEditText
         android:id="@+id/zall_data_pairing_code"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

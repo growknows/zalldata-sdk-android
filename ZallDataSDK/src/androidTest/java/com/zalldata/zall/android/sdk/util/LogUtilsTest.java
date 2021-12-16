@@ -1,4 +1,4 @@
-package com.zalldata.zall.android.sdk.util;
+package com.zalldata.analytics.android.sdk.util;
 
 /*
  * Created by guo on 2020/9/1.

@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package com.zalldata.zall.android.sdk.data;
+package com.zalldata.analytics.android.sdk.data;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -25,7 +25,7 @@ import android.database.sqlite.SQLiteDatabase;
 import androidx.test.core.app.ApplicationProvider;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 
-import com.zalldata.zall.android.sdk.data.adapter.DbParams;
+import com.zalldata.analytics.android.sdk.data.adapter.DbParams;
 
 import org.junit.BeforeClass;
 import org.junit.Test;

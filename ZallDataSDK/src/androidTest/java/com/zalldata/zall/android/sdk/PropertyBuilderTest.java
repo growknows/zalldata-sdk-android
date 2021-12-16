@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package com.zalldata.zall.android.sdk;
+package com.zalldata.analytics.android.sdk;
 
 import androidx.test.espresso.core.internal.deps.guava.collect.Lists;
 

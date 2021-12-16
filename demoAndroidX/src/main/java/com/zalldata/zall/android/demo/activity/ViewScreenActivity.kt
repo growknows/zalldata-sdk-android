@@ -20,8 +20,8 @@ package com.zalldata.zall.android.demo.activity
 import android.content.Intent
 import android.os.Bundle
 import com.zalldata.zall.android.demo.R
-import com.zalldata.zall.android.sdk.PropertyBuilder
-import com.zalldata.zall.android.sdk.ScreenAutoTracker
+import com.zalldata.analytics.android.sdk.PropertyBuilder
+import com.zalldata.analytics.android.sdk.ScreenAutoTracker
 import kotlinx.android.synthetic.main.activity_view_screen.*
 import org.json.JSONObject
 

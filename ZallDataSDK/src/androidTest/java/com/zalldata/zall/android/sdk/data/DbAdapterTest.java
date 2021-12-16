@@ -1,4 +1,4 @@
-package com.zalldata.zall.android.sdk.data;
+package com.zalldata.analytics.android.sdk.data;
 
 import android.content.ContentResolver;
 import android.content.Context;
@@ -8,8 +8,8 @@ import android.net.Uri;
 import androidx.test.core.app.ApplicationProvider;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 
-import com.zalldata.zall.android.sdk.data.adapter.DbAdapter;
-import com.zalldata.zall.android.sdk.data.adapter.DbParams;
+import com.zalldata.analytics.android.sdk.data.adapter.DbAdapter;
+import com.zalldata.analytics.android.sdk.data.adapter.DbParams;
 
 import org.json.JSONObject;
 import org.junit.BeforeClass;

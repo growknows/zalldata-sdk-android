@@ -2,8 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-android'
 //添加 com.zalldata.zall.android 插件
-//apply plugin: 'com.zalldata.zall.android'
-apply plugin: 'com.sensorsdata.analytics.android'
+apply plugin: 'com.zalldata.analytics.android'
 
 
 
@@ -40,11 +39,11 @@ android {
         enabled true
     }
 
-    sensorsAnalytics {
-        //debug = true
-        //autoHandleWebView = false
-        //enableAllLambdaParamPerf = true
-    }
+//    sensorsAnalytics {
+//        //debug = true
+//        //autoHandleWebView = false
+//        //enableAllLambdaParamPerf = true
+//    }
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8

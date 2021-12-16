@@ -24,10 +24,10 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.view.WindowManager
 import com.zalldata.zall.android.demo.R
-import com.zalldata.zall.android.sdk.PropertyBuilder
-import com.zalldata.zall.android.sdk.ZALog
-import com.zalldata.zall.android.sdk.ZallDataAPI
-import com.zalldata.zall.android.sdk.util.*
+import com.zalldata.analytics.android.sdk.PropertyBuilder
+import com.zalldata.analytics.android.sdk.ZALog
+import com.zalldata.analytics.android.sdk.ZallDataAPI
+import com.zalldata.analytics.android.sdk.util.*
 import kotlinx.android.synthetic.main.activity_base_property.*
 import java.util.*
 import kotlin.collections.HashMap

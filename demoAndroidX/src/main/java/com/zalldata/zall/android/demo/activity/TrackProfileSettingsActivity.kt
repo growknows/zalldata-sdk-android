@@ -27,9 +27,9 @@ import android.view.View
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.zalldata.zall.android.demo.R
-import com.zalldata.zall.android.sdk.PropertyBuilder
-import com.zalldata.zall.android.sdk.ZallDataAPI
-import com.zalldata.zall.android.sdk.ZallDataTrackViewOnClick
+import com.zalldata.analytics.android.sdk.PropertyBuilder
+import com.zalldata.analytics.android.sdk.ZallDataAPI
+import com.zalldata.analytics.android.sdk.ZallDataTrackViewOnClick
 import kotlinx.android.synthetic.main.activity_track_profile.*
 import java.util.*
 

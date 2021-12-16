@@ -25,7 +25,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.zalldata.zall.android.demo.PopupMenuActivity
 import com.zalldata.zall.android.demo.R
 import com.zalldata.zall.android.demo.custom.HorizonRecyclerDivider
-import com.zalldata.zall.android.sdk.util.ZallDataUtils
+import com.zalldata.analytics.android.sdk.util.ZallDataUtils
 import kotlinx.android.synthetic.main.activity_test_list.*
 
 class TestMainActivity : AppCompatActivity() {

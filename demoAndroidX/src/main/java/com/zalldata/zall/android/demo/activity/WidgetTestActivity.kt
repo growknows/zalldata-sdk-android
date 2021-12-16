@@ -26,9 +26,9 @@ import android.view.View
 import android.widget.*
 import androidx.annotation.RequiresApi
 import com.zalldata.zall.android.demo.R
-import com.zalldata.zall.android.sdk.ZALog
-import com.zalldata.zall.android.sdk.ZallDataAPI
-import com.zalldata.zall.android.sdk.ZallDataTrackViewOnClick
+import com.zalldata.analytics.android.sdk.ZALog
+import com.zalldata.analytics.android.sdk.ZallDataAPI
+import com.zalldata.analytics.android.sdk.ZallDataTrackViewOnClick
 import kotlinx.android.synthetic.main.activity_widget.*
 
 class WidgetTestActivity : BaseActivity(), CompoundButton.OnCheckedChangeListener,

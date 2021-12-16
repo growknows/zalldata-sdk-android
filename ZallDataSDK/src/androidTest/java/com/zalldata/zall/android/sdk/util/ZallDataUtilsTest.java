@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package com.zalldata.zall.android.sdk.util;
+package com.zalldata.analytics.android.sdk.util;
 
 import android.Manifest;
 import android.content.Context;

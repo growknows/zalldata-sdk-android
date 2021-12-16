@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package com.zalldata.zall.android.sdk.data;
+package com.zalldata.analytics.android.sdk.data;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -23,19 +23,19 @@ import android.content.SharedPreferences;
 import androidx.test.core.app.ApplicationProvider;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 
-import com.zalldata.zall.android.sdk.PropertyBuilder;
-import com.zalldata.zall.android.sdk.data.persistent.PersistentAppEndData;
-import com.zalldata.zall.android.sdk.data.persistent.PersistentDistinctId;
-import com.zalldata.zall.android.sdk.data.persistent.PersistentFirstDay;
-import com.zalldata.zall.android.sdk.data.persistent.PersistentFirstStart;
-import com.zalldata.zall.android.sdk.data.persistent.PersistentFirstTrackInstallation;
-import com.zalldata.zall.android.sdk.data.persistent.PersistentFirstTrackInstallationWithCallback;
-import com.zalldata.zall.android.sdk.data.persistent.PersistentIdentity;
-import com.zalldata.zall.android.sdk.data.persistent.PersistentLoader;
-import com.zalldata.zall.android.sdk.data.persistent.PersistentLoginId;
-import com.zalldata.zall.android.sdk.data.persistent.PersistentRemoteSDKConfig;
-import com.zalldata.zall.android.sdk.data.persistent.PersistentSuperProperties;
-import com.zalldata.zall.android.sdk.util.ZallDataUtils;
+import com.zalldata.analytics.android.sdk.PropertyBuilder;
+import com.zalldata.analytics.android.sdk.data.persistent.PersistentAppEndData;
+import com.zalldata.analytics.android.sdk.data.persistent.PersistentDistinctId;
+import com.zalldata.analytics.android.sdk.data.persistent.PersistentFirstDay;
+import com.zalldata.analytics.android.sdk.data.persistent.PersistentFirstStart;
+import com.zalldata.analytics.android.sdk.data.persistent.PersistentFirstTrackInstallation;
+import com.zalldata.analytics.android.sdk.data.persistent.PersistentFirstTrackInstallationWithCallback;
+import com.zalldata.analytics.android.sdk.data.persistent.PersistentIdentity;
+import com.zalldata.analytics.android.sdk.data.persistent.PersistentLoader;
+import com.zalldata.analytics.android.sdk.data.persistent.PersistentLoginId;
+import com.zalldata.analytics.android.sdk.data.persistent.PersistentRemoteSDKConfig;
+import com.zalldata.analytics.android.sdk.data.persistent.PersistentSuperProperties;
+import com.zalldata.analytics.android.sdk.util.ZallDataUtils;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -90,7 +90,7 @@ public class PersistentTest {
 
     @Test
     public void persistentDataTest() {
-        SharedPreferences sharedPreferences = context.getSharedPreferences("com.zalldata.zall.android.sdk.ZallDataAPI", Context.MODE_PRIVATE);
+        SharedPreferences sharedPreferences = context.getSharedPreferences("com.zalldata.analytics.android.sdk.ZallDataAPI", Context.MODE_PRIVATE);
         sharedPreferences.edit().clear().apply();
 
         // PersistentSuperProperties

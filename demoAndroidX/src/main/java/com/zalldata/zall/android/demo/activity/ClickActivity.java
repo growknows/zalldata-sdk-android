@@ -28,8 +28,8 @@ import androidx.databinding.DataBindingUtil;
 import com.zalldata.zall.android.demo.R;
 import com.zalldata.zall.android.demo.databinding.ActivityClickBinding;
 import com.zalldata.zall.android.demo.entity.BindingEntity;
-import com.zalldata.zall.android.sdk.ZallDataAPI;
-import com.zalldata.zall.android.sdk.ZallDataTrackViewOnClick;
+import com.zalldata.analytics.android.sdk.ZallDataAPI;
+import com.zalldata.analytics.android.sdk.ZallDataTrackViewOnClick;
 
 
 public class ClickActivity extends BaseActivity implements View.OnClickListener {

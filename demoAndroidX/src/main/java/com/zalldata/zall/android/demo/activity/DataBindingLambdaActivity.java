@@ -34,7 +34,7 @@ import androidx.databinding.DataBindingUtil;
 
 import com.zalldata.zall.android.demo.R;
 import com.zalldata.zall.android.demo.databinding.ActivityDbLBinding;
-import com.zalldata.zall.android.sdk.PropertyBuilder;
+import com.zalldata.analytics.android.sdk.PropertyBuilder;
 
 public class DataBindingLambdaActivity extends BaseActivity {
 

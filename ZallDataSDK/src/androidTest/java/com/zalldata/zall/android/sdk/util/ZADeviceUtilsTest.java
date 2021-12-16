@@ -1,4 +1,4 @@
-package com.zalldata.zall.android.sdk.util;
+package com.zalldata.analytics.android.sdk.util;
 
 import android.Manifest;
 import android.content.Context;
@@ -7,9 +7,9 @@ import androidx.test.core.app.ApplicationProvider;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.rule.GrantPermissionRule;
 
-import com.zalldata.zall.android.sdk.ZAConfigOptions;
-import com.zalldata.zall.android.sdk.ZallDataAPI;
-import com.zalldata.zall.android.sdk.advert.utils.OaidHelper;
+import com.zalldata.analytics.android.sdk.ZAConfigOptions;
+import com.zalldata.analytics.android.sdk.ZallDataAPI;
+import com.zalldata.analytics.android.sdk.advert.utils.OaidHelper;
 
 import org.junit.Before;
 import org.junit.Rule;

@@ -11,12 +11,10 @@ buildscript {
         }
 
         //添加 Zall Data maven 库地址
-//        maven {
-//            url 'https://dl.bintray.com/zouyuhan/maven'
-//        }
-//        maven {
-//            url 'file:/Users/wangzhuozhou/Documents/repo'
-//        }
+        maven {
+            url uri('../z-data-android-sdk-plugin/repo') //插件所在的目录
+        }
+
         google()
     }
     dependencies {
@@ -24,10 +22,7 @@ buildscript {
         classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.4'
         classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
         //添加 Zall Data android-gradle-plugin 依赖
-//        classpath 'com.zalldata.zall.android:android-gradle-plugin2:3.4.0'
-        classpath 'com.sensorsdata.analytics.android:android-gradle-plugin2:3.4.0'
-
-
+        classpath 'com.zalldata.analytics.android:android-gradle-plugin:3.8.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
@@ -41,8 +36,8 @@ allprojects {
             url 'https://maven.aliyun.com/repository/google'
         }
         //添加 Zall Data maven 库地址
-//        maven {
-//            url 'https://dl.bintray.com/zouyuhan/maven'
-//        }
+        maven {
+            url uri('../z-data-android-sdk-plugin/repo') //插件所在的目录
+        }
     }
 }
