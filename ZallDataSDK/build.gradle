@@ -145,9 +145,9 @@ publishing {
                 }
                 developers {
                     developer {
-                        id = 'dengshiwei'
-                        name = 'dengshiwei'
-                        email = 'dengshiwei@zalldata.com'
+                        id = 'guozhentao'
+                        name = 'guozhentao'
+                        email = 'guozhentao@zalldigital.com'
                     }
                 }
                 scm {
