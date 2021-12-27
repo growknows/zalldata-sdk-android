@@ -1,5 +1,5 @@
 /*
- * Created by guo on 2021/3/27.
+ * Created by guo on 2021/08/19.
  * Copyright 2015－2021 Zall Data Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -144,7 +144,7 @@ public class OaidHelper {
             }
 
             /*
-             * 此处是为了适配三星部分手机，根据 MZA 工作人员反馈，对于三星部分机型的支持有 bug，导致
+             * 此处是为了适配三星部分手机，根据 MSA 工作人员反馈，对于三星部分机型的支持有 bug，导致
              * 返回 1008614 错误码，但是不会触发回调。所以此处的逻辑是，两秒之后主动放弃阻塞。
              */
             new Thread(new Runnable() {

@@ -1,5 +1,5 @@
 /*
- * Created by guo on 2021/9/5.
+ * Created by guo on 2020/07/09.
  * Copyright 2015－2020 Zall Data Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -46,7 +46,7 @@ public class PairingCodeEditDialog extends Dialog {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.zall_data_verification_code);
+        setContentView(R.layout.zall_analytics_verification_code);
         Window window = getWindow();
         if (window != null) {
             WindowManager.LayoutParams p = window.getAttributes();
@@ -59,7 +59,7 @@ public class PairingCodeEditDialog extends Dialog {
             window.setBackgroundDrawable(bg);
             window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
         }
-        final PairingCodeEditText pairingCodeEditText = findViewById(R.id.zall_data_pairing_code);
+        final PairingCodeEditText pairingCodeEditText = findViewById(R.id.zall_analytics_pairing_code);
         pairingCodeEditText.setOnPairingCodeChangedListener(new IPairingCodeInterface.OnPairingCodeChangedListener() {
             @Override
             public void onPairingCodeChanged(CharSequence s, int start, int before, int count) {

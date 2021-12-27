@@ -1,5 +1,5 @@
 /*
- * Created by guo on 2020/5/17.
+ * Created by guo on 2021/04/08.
  * Copyright 2015－2021 Zall Data Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -80,7 +80,7 @@ class ZAProviderHelper {
      */
     public void migratingDB(final Context context, final String packageName) {
         try {
-            boolean isMigrating = AppInfoUtils.getAppInfoBundle(context).getBoolean("com.zalldata.zall.android.EnableMigratingDB", true);
+            boolean isMigrating = AppInfoUtils.getAppInfoBundle(context).getBoolean("com.zalldata.analytics.android.EnableMigratingDB", true);
             if (!isMigrating) {
                 return;
             }
@@ -133,7 +133,7 @@ class ZAProviderHelper {
             uriMatcher.addURI(authority, DbParams.TABLE_CHANNEL_PERSISTENT, URI_CODE.CHANNEL_PERSISTENT);
             uriMatcher.addURI(authority, DbParams.TABLE_SUB_PROCESS_FLUSH_DATA, URI_CODE.FLUSH_DATA);
             uriMatcher.addURI(authority, DbParams.TABLE_FIRST_PROCESS_START, URI_CODE.FIRST_PROCESS_START);
-            uriMatcher.addURI(authority, DbParams.TABLE_DATA_DIZABLE_SDK, URI_CODE.DIZABLE_SDK);
+            uriMatcher.addURI(authority, DbParams.TABLE_DATA_DISABLE_SDK, URI_CODE.DISABLE_SDK);
             uriMatcher.addURI(authority, DbParams.TABLE_REMOTE_CONFIG, URI_CODE.REMOTE_CONFIG);
         } catch (Exception ex) {
             ZALog.printStackTrace(ex);
@@ -379,7 +379,7 @@ class ZAProviderHelper {
         int CHANNEL_PERSISTENT = 8;
         int FLUSH_DATA = 9;
         int FIRST_PROCESS_START = 10;
-        int DIZABLE_SDK = 11;
+        int DISABLE_SDK = 11;
         int REMOTE_CONFIG = 12;
     }
 }

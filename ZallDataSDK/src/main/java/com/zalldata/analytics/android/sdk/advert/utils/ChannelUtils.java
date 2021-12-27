@@ -1,5 +1,5 @@
 /*
- * Created by guo on 2021/2/30.
+ * Created by guo on 2021/08/19.
  * Copyright 2015－2021 Zall Data Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -42,11 +42,11 @@ import java.util.Map;
 import java.util.Set;
 
 public class ChannelUtils {
-    private static final String UTM_SOURCE_KEY = "SENSORS_ANALYTICS_UTM_SOURCE";
-    private static final String UTM_MEDIUM_KEY = "SENSORS_ANALYTICS_UTM_MEDIUM";
-    private static final String UTM_TERM_KEY = "SENSORS_ANALYTICS_UTM_TERM";
-    private static final String UTM_CONTENT_KEY = "SENSORS_ANALYTICS_UTM_CONTENT";
-    private static final String UTM_CAMPAIGN_KEY = "SENSORS_ANALYTICS_UTM_CAMPAIGN";
+    private static final String UTM_SOURCE_KEY = "ZALL_ANALYTICS_UTM_SOURCE";
+    private static final String UTM_MEDIUM_KEY = "ZALL_ANALYTICS_UTM_MEDIUM";
+    private static final String UTM_TERM_KEY = "ZALL_ANALYTICS_UTM_TERM";
+    private static final String UTM_CONTENT_KEY = "ZALL_ANALYTICS_UTM_CONTENT";
+    private static final String UTM_CAMPAIGN_KEY = "ZALL_ANALYTICS_UTM_CAMPAIGN";
     private static final String SHARED_PREF_UTM_FILE = "zalldata.utm";
     private static final String SHARED_PREF_CORRECT_TRACK_INSTALLATION = "zalldata.correct.track.installation";
 

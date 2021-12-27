@@ -1,5 +1,5 @@
 /*
- * Created by guo on 2021/6/8.
+ * Created by guo on 2015/08/01.
  * Copyright 2015－2021 Zall Data Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -67,7 +67,7 @@ import static com.zalldata.analytics.android.sdk.util.ZADataHelper.assertPropert
 import static com.zalldata.analytics.android.sdk.util.ZADataHelper.assertValue;
 
 /**
- * Zall Data SDK
+ * Zall Analytics SDK
  */
 public class ZallDataAPI extends AbstractZallDataAPI {
     // 可视化埋点功能最低 API 版本
@@ -121,20 +121,20 @@ public class ZallDataAPI extends AbstractZallDataAPI {
      * 初始化卓尔 SDK
      *
      * @param context App 的 Context
-     * @param zaConfigOptions SDK 的配置项
+     * @param saConfigOptions SDK 的配置项
      */
-    public static void startWithConfigOptions(Context context, ZAConfigOptions zaConfigOptions) {
-        if (context == null || zaConfigOptions == null) {
+    public static void startWithConfigOptions(Context context, ZAConfigOptions saConfigOptions) {
+        if (context == null || saConfigOptions == null) {
             throw new NullPointerException("Context、ZAConfigOptions 不可以为 null");
         }
-        ZallDataAPI zallDataAPI = getInstance(context, DebugMode.DEBUG_OFF, zaConfigOptions);
+        ZallDataAPI zallDataAPI = getInstance(context, DebugMode.DEBUG_OFF, saConfigOptions);
         if (!zallDataAPI.mSDKConfigInit) {
             zallDataAPI.applyZAConfigOptions();
         }
     }
 
     private static ZallDataAPI getInstance(Context context, DebugMode debugMode,
-                                              ZAConfigOptions zaConfigOptions) {
+                                              ZAConfigOptions saConfigOptions) {
         if (null == context) {
             return new ZallDataAPIEmptyImplementation();
         }
@@ -143,7 +143,7 @@ public class ZallDataAPI extends AbstractZallDataAPI {
             final Context appContext = context.getApplicationContext();
             ZallDataAPI instance = sInstanceMap.get(appContext);
             if (null == instance) {
-                instance = new ZallDataAPI(appContext, zaConfigOptions, debugMode);
+                instance = new ZallDataAPI(appContext, saConfigOptions, debugMode);
                 sInstanceMap.put(appContext, instance);
                 if (context instanceof Activity) {
                     instance.delayExecution((Activity) context);
@@ -825,7 +825,7 @@ public class ZallDataAPI extends AbstractZallDataAPI {
     @Override
     public void setViewID(View view, String viewID) {
         if (view != null && !TextUtils.isEmpty(viewID)) {
-            view.setTag(R.id.zall_data_tag_view_id, viewID);
+            view.setTag(R.id.zall_analytics_tag_view_id, viewID);
         }
     }
 
@@ -834,7 +834,7 @@ public class ZallDataAPI extends AbstractZallDataAPI {
         try {
             if (view != null && !TextUtils.isEmpty(viewID)) {
                 if (view.getWindow() != null) {
-                    view.getWindow().getDecorView().setTag(R.id.zall_data_tag_view_id, viewID);
+                    view.getWindow().getDecorView().setTag(R.id.zall_analytics_tag_view_id, viewID);
                 }
             }
         } catch (Exception e) {
@@ -887,7 +887,7 @@ public class ZallDataAPI extends AbstractZallDataAPI {
 
                 Window window = (Window) getWindowMethod.invoke(alertDialog);
                 if (window != null) {
-                    window.getDecorView().setTag(R.id.zall_data_tag_view_id, viewID);
+                    window.getDecorView().setTag(R.id.zall_analytics_tag_view_id, viewID);
                 }
             }
         } catch (Exception e) {
@@ -901,7 +901,7 @@ public class ZallDataAPI extends AbstractZallDataAPI {
             if (view == null || activity == null) {
                 return;
             }
-            view.setTag(R.id.zall_data_tag_view_activity, activity);
+            view.setTag(R.id.zall_analytics_tag_view_activity, activity);
         } catch (Exception e) {
             com.zalldata.analytics.android.sdk.ZALog.printStackTrace(e);
         }
@@ -913,7 +913,7 @@ public class ZallDataAPI extends AbstractZallDataAPI {
             if (view == null || TextUtils.isEmpty(fragmentName)) {
                 return;
             }
-            view.setTag(R.id.zall_data_tag_view_fragment_name2, fragmentName);
+            view.setTag(R.id.zall_analytics_tag_view_fragment_name2, fragmentName);
         } catch (Exception e) {
             com.zalldata.analytics.android.sdk.ZALog.printStackTrace(e);
         }
@@ -922,14 +922,14 @@ public class ZallDataAPI extends AbstractZallDataAPI {
     @Override
     public void ignoreView(View view) {
         if (view != null) {
-            view.setTag(R.id.zall_data_tag_view_ignored, "1");
+            view.setTag(R.id.zall_analytics_tag_view_ignored, "1");
         }
     }
 
     @Override
     public void ignoreView(View view, boolean ignore) {
         if (view != null) {
-            view.setTag(R.id.zall_data_tag_view_ignored, ignore ? "1" : "0");
+            view.setTag(R.id.zall_analytics_tag_view_ignored, ignore ? "1" : "0");
         }
     }
 
@@ -939,7 +939,7 @@ public class ZallDataAPI extends AbstractZallDataAPI {
             return;
         }
 
-        view.setTag(R.id.zall_data_tag_view_properties, properties);
+        view.setTag(R.id.zall_analytics_tag_view_properties, properties);
     }
 
     @Override
@@ -1844,7 +1844,7 @@ public class ZallDataAPI extends AbstractZallDataAPI {
     }
 
     /**
-     * 将所有本地缓存的日志发送到 Zall Data.
+     * 将所有本地缓存的日志发送到 Zall Analytics.
      */
     @Override
     public void flushSync() {
@@ -2390,14 +2390,14 @@ public class ZallDataAPI extends AbstractZallDataAPI {
     }
 
     /**
-     * Debug 模式，用于检验数据导入是否正确。该模式下，事件会逐条实时发送到 Zall Data，并根据返回值检查
+     * Debug 模式，用于检验数据导入是否正确。该模式下，事件会逐条实时发送到 Zall Analytics，并根据返回值检查
      * 数据导入是否正确。
      * Debug 模式的具体使用方式，请参考:
      * http://www.zalldata.cn/manual/debug_mode.html
      * Debug 模式有三种：
      * DEBUG_OFF - 关闭DEBUG模式
      * DEBUG_ONLY - 打开DEBUG模式，但该模式下发送的数据仅用于调试，不进行数据导入
-     * DEBUG_AND_TRACK - 打开DEBUG模式，并将数据导入到ZallData中
+     * DEBUG_AND_TRACK - 打开DEBUG模式，并将数据导入到ZallAnalytics中
      */
     public enum DebugMode {
         DEBUG_OFF(false, false),

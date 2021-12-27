@@ -1,5 +1,5 @@
 /*
- * Created by guo on 2020/5/21.
+ * Created by guo on 2019/04/25.
  * Copyright 2015－2021 Zall Data Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -357,9 +357,9 @@ public class ZallDataAPITest {
     public void assertValueTest() {
         try {
             Context context = ApplicationProvider.getApplicationContext();
-            ZAConfigOptions zaConfigOptions = new ZAConfigOptions("");
-            zaConfigOptions.enableLog(true);
-            ZallDataAPI.startWithConfigOptions(context, zaConfigOptions);
+            ZAConfigOptions saConfigOptions = new ZAConfigOptions("");
+            saConfigOptions.enableLog(true);
+            ZallDataAPI.startWithConfigOptions(context, saConfigOptions);
             ZallDataAPI.sharedInstance().identify("");
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -380,8 +380,8 @@ public class ZallDataAPITest {
 
             Context context = ApplicationProvider.getApplicationContext();
 
-            ZAConfigOptions zaConfigOptions = new ZAConfigOptions("");
-            zaConfigOptions.enableLog(IS_LOG_ENABLE)
+            ZAConfigOptions saConfigOptions = new ZAConfigOptions("");
+            saConfigOptions.enableLog(IS_LOG_ENABLE)
                     .setFlushBulkSize(FLUSH_BULK_SIZE)
                     .setFlushInterval(FLUSH_INTERVAL)
                     .setMaxCacheSize(MAX_CACHE_SIZE)
@@ -392,7 +392,7 @@ public class ZallDataAPITest {
                     .enableHeatMap(FLAG)
                     .enableTrackAppCrash();
 
-            ZallDataAPI.sharedInstance().startWithConfigOptions(context, zaConfigOptions);
+            ZallDataAPI.sharedInstance().startWithConfigOptions(context, saConfigOptions);
 
             assertEquals(FLUSH_BULK_SIZE, ZallDataAPI.sharedInstance().getFlushBulkSize());
             assertEquals(FLUSH_INTERVAL, ZallDataAPI.sharedInstance().getFlushInterval());

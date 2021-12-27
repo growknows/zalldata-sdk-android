@@ -6,10 +6,10 @@
         s = 'script',
         x = null,
         y = null;
-    if (typeof (w['sensorsDataAnalytic201505']) !== 'undefined') {
+    if (typeof (w['zallDataAnalytic201505']) !== 'undefined') {
         return false;
     }
-    w['sensorsDataAnalytic201505'] = n; //'sensors'
+    w['zallDataAnalytic201505'] = n; //'zall'
     w[n] = w[n] || function (a) {
         return function () {
             (w[n]._q = w[n]._q || []).push([a, arguments]);
@@ -38,13 +38,13 @@
         y.parentNode.insertBefore(x, y);
     }
 })({
-    sdk_url:'./sensorsdata.full.js',
-    // sdk_url: 'https://869359954.github.io/sadefine/sensorsdata.full.js',
-    // sdk_url:'https://cdn.jsdelivr.net/npm/sa-sdk-javascript@1.14.20/sensorsdata.min.js',
-    // heatmap_url: 'https://cdn.jsdelivr.net/npm/sa-sdk-javascript@1.14.21/heatmap.min.js',
-    // sdk_url: './sdk-919/sensorsdata.full.js',
-    // heatmap_url: './sensors/heatmap.js',
-    name: 'sensors',
+    sdk_url:'./zalldata.full.js',
+    // sdk_url: 'https://869359954.github.io/sadefine/zalldata.full.js',
+    // sdk_url:'https://cdn.jsdelivr.net/npm/za-sdk-javascript@1.14.20/zalldata.min.js',
+    // heatmap_url: 'https://cdn.jsdelivr.net/npm/za-sdk-javascript@1.14.21/heatmap.min.js',
+    // sdk_url: './sdk-919/zalldata.full.js',
+    // heatmap_url: './zall/heatmap.js',
+    name: 'zall',
     is_track_device_id: true,
     source_channel: ['bd_vid'],
     source_type: {
@@ -52,17 +52,17 @@
         social: ['.kaixin001.com']
     },
     // server_url:'',
-    server_url: 'https://sdkdebugtest.datasink.sensorsdata.cn/sa?project=default&token=cfb8b60e42e0ae9b',
-    // server_url: ['https://test-syg.datasink.sensorsdata.cn/sa?project=liangshuang&token=27f1e21b78daf376','https://test-syg.datasink.sensorsdata.cn/sa?project=lixiang&token=27f1e21b78daf376'],
+    server_url: 'https://sdkdebugtest.datasink.zalldata.cn/sa?project=default&token=cfb8b60e42e0ae9b',
+    // server_url: ['https://test-syg.datasink.zalldata.cn/sa?project=liangshuang&token=27f1e21b78daf376','https://test-syg.datasink.zalldata.cn/sa?project=lixiang&token=27f1e21b78daf376'],
     debug_mode: false,
     debug_mode_upload: false,
     // send_type:'ajax',
     // use_app_track: true,
     use_app_track_config:{
         use_app_track:true,
-        white_list:['https://sdkdebugtest.datasink.sensorsdata.cn/sa?project=default&token=cfb8b60e42e0ae9b',
-                    'http://test-syg.datasink.sensorsdata.cn/sa?project=liangshuang&token=27f1e21b78daf376',
-                    'https://newsdktest.datasink.sensorsdata.cn/sa?project=zhangwei&token=5a394d2405c147ca']
+        white_list:['https://sdkdebugtest.datasink.zalldata.cn/sa?project=default&token=cfb8b60e42e0ae9b',
+                    'http://test-syg.datasink.zalldata.cn/sa?project=liangshuang&token=27f1e21b78daf376',
+                    'https://newsdktest.datasink.zalldata.cn/sa?project=zhangwei&token=5a394d2405c147ca']
     },
     use_client_time: true,
     cross_subdomain: false,
@@ -86,8 +86,8 @@
         //     }
         // },
         collect_element: function (element_target) {
-            // 如果这个元素有属性sensors-disable=true时候，不采集
-            if (element_target.getAttribute('sensors-disable') === 'true') {
+            // 如果这个元素有属性zall-disable=true时候，不采集
+            if (element_target.getAttribute('zall-disable') === 'true') {
                 return false;
             } else {
                 return true;
@@ -114,22 +114,22 @@
     //     title:false
     // }
 });
-// sensors.registerPage({
+// zall.registerPage({
 //      $title : '123tt'
 // });
 
-// sensors.quick('autoTrackWithoutProfile');
-sensors.quick('autoTrack', {
+// zall.quick('autoTrackWithoutProfile');
+zall.quick('autoTrack', {
     $title: 'mytest'
 });
-sensors.track('sdk_1152', {});
-// sensors.quick('isReady',function(){
-//     var pro = sensors.getPresetProperties();
+zall.track('sdk_1152', {});
+// zall.quick('isReady',function(){
+//     var pro = zall.getPresetProperties();
 //     console.log(pro);
 // })
-// sensors.setProfile()
-// window.SensorsData_APP_JS_Bridge = {
-//     sensorsdata_define_mode : function(data){
+// zall.setProfile()
+// window.ZallData_APP_JS_Bridge = {
+//     zalldata_define_mode : function(data){
 //     //    var data = JSON.parse(data);
 //         console.log(data);
 
@@ -138,7 +138,7 @@ sensors.track('sdk_1152', {});
 
 // var webkit = {
 //     messageHandlers :{
-//         sensorsdataNativeTracker : {
+//         zalldataNativeTracker : {
 //             postMessage : function(data){
 //                 console.log('ios 成功接收数据');
 //                 console.log(data);
@@ -146,18 +146,18 @@ sensors.track('sdk_1152', {});
 //         }
 //     }
 // };
-// var SensorsData_iOS_JS_Bridge = {
-//     sensorsdata_app_server_url: 'http://test-syg.datasink.sensorsdata.cn/sa?project=liangshuang&token=27f1e21b78daf376',
+// var ZallData_iOS_JS_Bridge = {
+//     zalldata_app_server_url: 'http://test-syg.datasink.zalldata.cn/sa?project=liangshuang&token=27f1e21b78daf376',
 // };
 
-// var SensorsData_APP_JS_Bridge = {
-//     // sensorsdata_track : function(data){
+// var ZallData_APP_JS_Bridge = {
+//     // zalldata_track : function(data){
 //     //     console.log('android接收数据',data);
 //     // },
-//     // sensorsdata_get_server_url:function(){
-//     //     return 'https://test-syg.datasink.sensorsdata.cn/sa?project=liangshuang&token=27f1e21b78daf376';
+//     // zalldata_get_server_url:function(){
+//     //     return 'https://test-syg.datasink.zalldata.cn/sa?project=liangshuang&token=27f1e21b78daf376';
 //     // }
-//     // sensorsdata_verify:function(data){
+//     // zalldata_verify:function(data){
 //     //     console.log('android verify 接收数据',data);
 //     //     return true;
 //     // }

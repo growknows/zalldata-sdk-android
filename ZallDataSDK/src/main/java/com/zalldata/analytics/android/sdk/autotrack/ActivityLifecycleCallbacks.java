@@ -1,5 +1,5 @@
 /*
- * Created by guo on 2021/3/19.
+ * Created by guo on 2021/07/29.
  * Copyright 2015－2021 Zall Data Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -179,7 +179,7 @@ public class ActivityLifecycleCallbacks implements ZallDataActivityLifecycleCall
 
     private void initHandler() {
         try {
-            HandlerThread handlerThread = new HandlerThread("SENSORS_DATA_THREAD");
+            HandlerThread handlerThread = new HandlerThread("ZALL_DATA_THREAD");
             handlerThread.start();
             mHandler = new Handler(handlerThread.getLooper()) {
                 @Override

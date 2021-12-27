@@ -1,5 +1,5 @@
 /*
- * Created by guo on 2020/8/10.
+ * Created by guo on 2019/12/19.
  * Copyright 2015－2021 Zall Data Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -164,7 +164,7 @@ public class AppStateManager implements Application.ActivityLifecycleCallbacks {
 
     private void unRegisterViewTreeChange(View root) {
         try {
-            if (root.getTag(R.id.zall_data_tag_view_tree_observer_listeners) != null) {
+            if (root.getTag(R.id.zall_analytics_tag_view_tree_observer_listeners) != null) {
                 ViewTreeStatusObservable observable = ViewTreeStatusObservable.getInstance();
                 if (Build.VERSION.SDK_INT < 16) {
                     root.getViewTreeObserver().removeGlobalOnLayoutListener(observable);
@@ -173,7 +173,7 @@ public class AppStateManager implements Application.ActivityLifecycleCallbacks {
                 }
                 root.getViewTreeObserver().removeOnGlobalFocusChangeListener(observable);
                 root.getViewTreeObserver().removeOnScrollChangedListener(observable);
-                root.setTag(R.id.zall_data_tag_view_tree_observer_listeners, null);
+                root.setTag(R.id.zall_analytics_tag_view_tree_observer_listeners, null);
             }
         } catch (Exception e) {
             ZALog.printStackTrace(e);
@@ -182,11 +182,11 @@ public class AppStateManager implements Application.ActivityLifecycleCallbacks {
 
     private void monitorViewTreeChange(View root) {
         try {
-            if (root.getTag(R.id.zall_data_tag_view_tree_observer_listeners) == null) {
+            if (root.getTag(R.id.zall_analytics_tag_view_tree_observer_listeners) == null) {
                 root.getViewTreeObserver().addOnGlobalLayoutListener(ViewTreeStatusObservable.getInstance());
                 root.getViewTreeObserver().addOnScrollChangedListener(ViewTreeStatusObservable.getInstance());
                 root.getViewTreeObserver().addOnGlobalFocusChangeListener(ViewTreeStatusObservable.getInstance());
-                root.setTag(R.id.zall_data_tag_view_tree_observer_listeners, true);
+                root.setTag(R.id.zall_analytics_tag_view_tree_observer_listeners, true);
             }
         } catch (Exception e) {
             ZALog.printStackTrace(e);

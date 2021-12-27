@@ -1,5 +1,5 @@
 /*
- * Created by guo on 2020/10/12.
+ * Created by guo on 2020/11/04.
  * Copyright 2015－2021 Zall Data Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -51,7 +51,7 @@ class DebugModeSelectDialog extends Dialog implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.zall_data_debug_mode_dialog_content);
+        setContentView(R.layout.zall_analytics_debug_mode_dialog_content);
         initView();
         Window window = getWindow();
         if (window != null) {
@@ -70,20 +70,20 @@ class DebugModeSelectDialog extends Dialog implements View.OnClickListener {
 
     private void initView() {
         //标题:SDK 调试模式选择
-        TextView debugModeTitle = findViewById(R.id.zall_data_debug_mode_title);
+        TextView debugModeTitle = findViewById(R.id.zall_analytics_debug_mode_title);
         debugModeTitle.setText("SDK 调试模式选择");
         //取消
-        TextView debugModeCancel = findViewById(R.id.zall_data_debug_mode_cancel);
+        TextView debugModeCancel = findViewById(R.id.zall_analytics_debug_mode_cancel);
         debugModeCancel.setText("取消");
         debugModeCancel.setOnClickListener(this);
         debugModeCancel.setFocusable(true);
         //开启调试模式(不导入数据)
-        TextView debugModeOnly = findViewById(R.id.zall_data_debug_mode_only);
+        TextView debugModeOnly = findViewById(R.id.zall_analytics_debug_mode_only);
         debugModeOnly.setText("开启调试模式（不导入数据）");
         debugModeOnly.setOnClickListener(this);
         debugModeOnly.setFocusable(true);
         //"开启调试模式(导入数据)"
-        TextView debugModeTrack = findViewById(R.id.zall_data_debug_mode_track);
+        TextView debugModeTrack = findViewById(R.id.zall_analytics_debug_mode_track);
         debugModeTrack.setText("开启调试模式（导入数据）");
         debugModeTrack.setOnClickListener(this);
         debugModeTrack.setFocusable(true);
@@ -94,7 +94,7 @@ class DebugModeSelectDialog extends Dialog implements View.OnClickListener {
         } else if (currentDebugMode == ZallDataAPI.DebugMode.DEBUG_AND_TRACK) {
             msg = "当前为 测试模式（导入数据）";
         }
-        TextView debugModeMessage = findViewById(R.id.zall_data_debug_mode_message);
+        TextView debugModeMessage = findViewById(R.id.zall_analytics_debug_mode_message);
         debugModeMessage.setText(msg);
 
         //设置按钮点击效果
@@ -131,11 +131,11 @@ class DebugModeSelectDialog extends Dialog implements View.OnClickListener {
             return;
         }
         int id = v.getId();
-        if (id == R.id.zall_data_debug_mode_track) {
+        if (id == R.id.zall_analytics_debug_mode_track) {
             onDebugModeDialogClickListener.setDebugMode(this, ZallDataAPI.DebugMode.DEBUG_AND_TRACK);
-        } else if (id == R.id.zall_data_debug_mode_only) {
+        } else if (id == R.id.zall_analytics_debug_mode_only) {
             onDebugModeDialogClickListener.setDebugMode(this, ZallDataAPI.DebugMode.DEBUG_ONLY);
-        } else if (id == R.id.zall_data_debug_mode_cancel) {
+        } else if (id == R.id.zall_analytics_debug_mode_cancel) {
             onDebugModeDialogClickListener.onCancel(this);
         }
     }

@@ -1,5 +1,5 @@
 /*
- * Created by guo on 2020/7/27.
+ * Created by guo on 2019/06/03.
  * Copyright 2015－2021 Zall Data Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -54,7 +54,7 @@ public class NetworkUtils {
 
     private static final String TAG = "ZA.NetworkUtils";
 
-    private static ZABroadcastReceiver mReceiver;
+    private static SABroadcastReceiver mReceiver;
     private static ZANetworkCallbackImpl networkCallback;
 
     /**
@@ -194,7 +194,7 @@ public class NetworkUtils {
         try {
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
                 if (mReceiver == null) {
-                    mReceiver = new ZABroadcastReceiver();
+                    mReceiver = new SABroadcastReceiver();
                 }
                 IntentFilter intentFilter = new IntentFilter();
                 intentFilter.addAction(ConnectivityManager.CONNECTIVITY_ACTION);
@@ -356,7 +356,7 @@ public class NetworkUtils {
         return "NULL";
     }
 
-    private static class ZABroadcastReceiver extends BroadcastReceiver {
+    private static class SABroadcastReceiver extends BroadcastReceiver {
 
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -364,7 +364,7 @@ public class NetworkUtils {
             if (ConnectivityManager.CONNECTIVITY_ACTION.equals(action)) {
                 NetworkUtils.cleanNetworkTypeCache();
                 ZallDataAPI.sharedInstance().flush();
-                ZALog.i(TAG, "ZABroadcastReceiver is receiving ConnectivityManager.CONNECTIVITY_ACTION broadcast");
+                ZALog.i(TAG, "SABroadcastReceiver is receiving ConnectivityManager.CONNECTIVITY_ACTION broadcast");
             }
         }
     }

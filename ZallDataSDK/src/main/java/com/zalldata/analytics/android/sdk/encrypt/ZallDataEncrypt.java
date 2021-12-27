@@ -1,5 +1,5 @@
 /*
- * Created by guo on 2021/1/26.
+ * Created by guo on 2020/05/18.
  * Copyright 2015－2021 Zall Data Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -35,21 +35,21 @@ public class ZallDataEncrypt {
     private static final String SP_SECRET_KEY = "secret_key";
     private static final int KEY_VERSION_DEFAULT = 0;
     private static final String TAG = "ZallDataEncrypt";
-    private List<ZAEncryptListener> mListeners;
+    private List<SAEncryptListener> mListeners;
     private SecreteKey mSecreteKey;
 
     private IPersistentSecretKey mPersistentSecretKey;
     private Context mContext;
-    private ZAEncryptListener mEncryptListener;
+    private SAEncryptListener mEncryptListener;
 
 
-    public ZallDataEncrypt(Context context, IPersistentSecretKey persistentSecretKey, List<ZAEncryptListener> listeners) {
+    public ZallDataEncrypt(Context context, IPersistentSecretKey persistentSecretKey, List<SAEncryptListener> listeners) {
         this.mPersistentSecretKey = persistentSecretKey;
         this.mContext = context;
         this.mListeners = listeners;
-        mListeners.add(new ZARZAEncrypt());
+        mListeners.add(new ZARSAEncrypt());
         if (ZallDataEncrypt.isECEncrypt()) {
-            mListeners.add(new ZAECEncrypt());
+            mListeners.add(new SAECEncrypt());
         }
     }
 
@@ -127,7 +127,7 @@ public class ZallDataEncrypt {
         try {
             ZALog.i(TAG, "[saveSecretKey] publicKey = " + secreteKey.toString());
 
-            ZAEncryptListener encryptListener = getEncryptListener(secreteKey);
+            SAEncryptListener encryptListener = getEncryptListener(secreteKey);
             if (encryptListener != null) {
                 if (mPersistentSecretKey != null) {
                     mPersistentSecretKey.saveSecretKey(secreteKey);
@@ -164,7 +164,7 @@ public class ZallDataEncrypt {
      * @param secreteKey 加密信息
      * @return 类型是否一致 true:一致 false:不一致
      */
-    boolean isMatchEncryptType(ZAEncryptListener listener, SecreteKey secreteKey) {
+    boolean isMatchEncryptType(SAEncryptListener listener, SecreteKey secreteKey) {
         return listener != null && !isSecretKeyNull(secreteKey) && !isEncryptorTypeNull(listener) && listener.asymmetricEncryptType().equals(secreteKey.asymmetricEncryptType)
                 && listener.symmetricEncryptType().equals(secreteKey.symmetricEncryptType);
     }
@@ -317,14 +317,14 @@ public class ZallDataEncrypt {
         return secreteKey == null || TextUtils.isEmpty(secreteKey.key) || secreteKey.version == KEY_VERSION_DEFAULT;
     }
 
-    private boolean isEncryptorTypeNull(ZAEncryptListener saEncryptListener) {
+    private boolean isEncryptorTypeNull(SAEncryptListener saEncryptListener) {
         return TextUtils.isEmpty(saEncryptListener.asymmetricEncryptType())
                 || TextUtils.isEmpty(saEncryptListener.symmetricEncryptType());
     }
 
-    ZAEncryptListener getEncryptListener(SecreteKey secreteKey) {
+    SAEncryptListener getEncryptListener(SecreteKey secreteKey) {
         if (!isSecretKeyNull(secreteKey)) {
-            for (ZAEncryptListener listener : mListeners) {
+            for (SAEncryptListener listener : mListeners) {
                 if (listener != null && isMatchEncryptType(listener, secreteKey)) {
                     return listener;
                 }

@@ -1,5 +1,5 @@
 /*
- * Created by guo on 2021/7/8.
+ * Created by guo on 2015/08/01.
  * Copyright 2015－2021 Zall Data Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -184,7 +184,7 @@ public class ZallDataAutoTrackHelper {
             }
 
             // 获取 View 自定义属性
-            JSONObject p = (JSONObject) view.getTag(R.id.zall_data_tag_view_properties);
+            JSONObject p = (JSONObject) view.getTag(R.id.zall_analytics_tag_view_properties);
             if (p != null) {
                 AopUtil.mergeJSONObject(p, properties);
             }
@@ -270,7 +270,7 @@ public class ZallDataAutoTrackHelper {
             }
 
             //获取 View 自定义属性
-            JSONObject properties = (JSONObject) view.getTag(R.id.zall_data_tag_view_properties);
+            JSONObject properties = (JSONObject) view.getTag(R.id.zall_analytics_tag_view_properties);
 
             if (properties == null) {
                 properties = new JSONObject();
@@ -327,7 +327,7 @@ public class ZallDataAutoTrackHelper {
             }
 
             //获取 View 自定义属性
-            JSONObject p = (JSONObject) view.getTag(R.id.zall_data_tag_view_properties);
+            JSONObject p = (JSONObject) view.getTag(R.id.zall_analytics_tag_view_properties);
             if (p != null) {
                 AopUtil.mergeJSONObject(p, properties);
             }
@@ -668,7 +668,7 @@ public class ZallDataAutoTrackHelper {
 
                         if (view != null) {
                             //获取 View 自定义属性
-                            JSONObject p = (JSONObject) view.getTag(R.id.zall_data_tag_view_properties);
+                            JSONObject p = (JSONObject) view.getTag(R.id.zall_analytics_tag_view_properties);
                             if (p != null) {
                                 AopUtil.mergeJSONObject(p, properties);
                             }
@@ -889,7 +889,7 @@ public class ZallDataAutoTrackHelper {
             }
 
             //获取 View 自定义属性
-            JSONObject p = (JSONObject) view.getTag(R.id.zall_data_tag_view_properties);
+            JSONObject p = (JSONObject) view.getTag(R.id.zall_analytics_tag_view_properties);
             if (p != null) {
                 AopUtil.mergeJSONObject(p, properties);
             }
@@ -952,7 +952,7 @@ public class ZallDataAutoTrackHelper {
             try {
                 Window window = dialog.getWindow();
                 if (window != null && window.isActive()) {
-                    String idString = (String) dialog.getWindow().getDecorView().getTag(R.id.zall_data_tag_view_id);
+                    String idString = (String) dialog.getWindow().getDecorView().getTag(R.id.zall_analytics_tag_view_id);
                     if (!TextUtils.isEmpty(idString)) {
                         properties.put(AopConstants.ELEMENT_ID, idString);
                     }
@@ -1191,7 +1191,7 @@ public class ZallDataAutoTrackHelper {
             }
 
             //获取 View 自定义属性
-            JSONObject p = (JSONObject) view.getTag(R.id.zall_data_tag_view_properties);
+            JSONObject p = (JSONObject) view.getTag(R.id.zall_analytics_tag_view_properties);
             if (p != null) {
                 AopUtil.mergeJSONObject(p, properties);
             }
@@ -1426,8 +1426,8 @@ public class ZallDataAutoTrackHelper {
     }
 
     static void addWebViewVisualInterface(View webView) {
-        if (webView != null && webView.getTag(R.id.zall_data_tag_view_webview_visual) == null) {
-            webView.setTag(R.id.zall_data_tag_view_webview_visual, new Object());
+        if (webView != null && webView.getTag(R.id.zall_analytics_tag_view_webview_visual) == null) {
+            webView.setTag(R.id.zall_analytics_tag_view_webview_visual, new Object());
             addJavascriptInterface(webView, new WebViewVisualInterface(webView), "ZallData_App_Visual_Bridge");
         }
     }
@@ -1441,8 +1441,8 @@ public class ZallDataAutoTrackHelper {
     }
 
     private static void setupWebView(View webView) {
-        if (webView != null && webView.getTag(R.id.zall_data_tag_view_webview) == null) {
-            webView.setTag(R.id.zall_data_tag_view_webview, new Object());
+        if (webView != null && webView.getTag(R.id.zall_analytics_tag_view_webview) == null) {
+            webView.setTag(R.id.zall_analytics_tag_view_webview, new Object());
             addJavascriptInterface(webView, new AppWebViewInterface(ZallDataAPI.sharedInstance().getContext(), null, false, webView), "ZallData_APP_New_H5_Bridge");
         }
     }

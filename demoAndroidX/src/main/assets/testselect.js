@@ -3,9 +3,9 @@ sdk的初始化和组织
 */
 
 /**
- * @fileoverview sensors analytic javascript sdk
- * @author shengyonggen@sensorsdata.cn
- * 神策数据 www.sensorsdata.cn ，长期招聘 前端SDK开发工程师 ，简历求发送到我邮箱，谢谢
+ * @fileoverview zall analytic javascript sdk
+ * @author shengyonggen@zalldata.cn
+ * 卓尔数据 www.zalldata.cn ，长期招聘 前端SDK开发工程师 ，简历求发送到我邮箱，谢谢
  */
 
 ;(function(factory) {
@@ -465,7 +465,7 @@ sdk的初始化和组织
           }
         }
       });
-      _.strip_sa_properties(obj);
+      _.strip_za_properties(obj);
     }
   };
   
@@ -494,8 +494,8 @@ sdk的初始化和组织
     return n;
   };
   
-  // 只能是sensors满足的数据格式
-  _.strip_sa_properties = function(p) {
+  // 只能是zall满足的数据格式
+  _.strip_za_properties = function(p) {
     if (!_.isObject(p)) {
       return p;
     }
@@ -1083,19 +1083,19 @@ sdk的初始化和组织
           // do nothing
         }
         if(typeof sub === 'string' && sub !== ''){
-          sub = 'sajssdk_2015_' + name_prefix + '_' + sub.replace(/\./g, '_');
+          sub = 'zajssdk_2015_' + name_prefix + '_' + sub.replace(/\./g, '_');
         }else{
-          sub = 'sajssdk_2015_root_' + name_prefix;
+          sub = 'zajssdk_2015_root_' + name_prefix;
         }
       }else{
-        sub = 'sajssdk_2015_cross_' + name_prefix;
+        sub = 'zajssdk_2015_cross_' + name_prefix;
       }
       return sub;
     },
   // 针对新用户的兼容性判断,兼容子域名
     getNewUser: function(){
       var prefix = 'new_user';
-      if(this.get('sensorsdata_is_new_user') !== null || this.get(this.getCookieName(prefix)) !== null){
+      if(this.get('zalldata_is_new_user') !== null || this.get(this.getCookieName(prefix)) !== null){
         return true;
       }else{
         return false;
@@ -1182,7 +1182,7 @@ sdk的初始化和组织
     isSupport: function() {
       var supported = true;
       try {
-        var key = '__sensorsdatasupport__';
+        var key = '__zalldatasupport__';
         var val = 'testIsSupportStorage';
         _.localStorage.set(key, val);
         if (_.localStorage.get(key) !== val) {
@@ -1202,7 +1202,7 @@ sdk的初始化和组织
     isSupport:function(){
         var supported = true;
   
-        var key = '__sensorsdatasupport__';
+        var key = '__zalldatasupport__';
         var val = 'testIsSupportStorage';
         try{
           if(sessionStorage && sessionStorage.setItem){
@@ -1542,11 +1542,11 @@ sdk的初始化和组织
       var domainStr = '.' + splitResult.splice(splitResult.length - 1, 1);
       while (splitResult.length > 0) {
         domainStr = '.' + splitResult.splice(splitResult.length - 1, 1) + domainStr;
-        document.cookie = "sensorsdata_domain_test=true; path=/; domain=" + domainStr;
-        if (document.cookie.indexOf('sensorsdata_domain_test=true') !== -1) {
+        document.cookie = "zalldata_domain_test=true; path=/; domain=" + domainStr;
+        if (document.cookie.indexOf('zalldata_domain_test=true') !== -1) {
           var now = new Date();
           now.setTime(now.getTime() - 1000);
-          document.cookie = "sensorsdata_domain_test=true; expires=" + now.toGMTString() + "; path=/; domain=" + domainStr;
+          document.cookie = "zalldata_domain_test=true; expires=" + now.toGMTString() + "; path=/; domain=" + domainStr;
           return domainStr;
         }
       }
@@ -2022,7 +2022,7 @@ sdk的初始化和组织
     img_use_crossorigin: false,
       //scrollmap:{delay:6000}
   
-      name: 'sa',
+      name: 'za',
       // referrer字符串截取
       max_referrer_string_length: 200,
       //通用字符串截取，超过7000的字符串会导致url超长发不出去，所以限制长度
@@ -2164,14 +2164,14 @@ sdk的初始化和组织
     if(typeof sd.para.server_url === 'object' && sd.para.server_url.length){
       for(i = 0; i < sd.para.server_url.length; i++){
         if (!/sa\.gif[^\/]*$/.test(sd.para.server_url[i])) {
-          sd.para.server_url[i] = sd.para.server_url[i].replace(/\/sa$/, '/sa.gif').replace(/(\/sa)(\?[^\/]+)$/, '/sa.gif$2');
+          sd.para.server_url[i] = sd.para.server_url[i].replace(/\/za-$/, '/za.gif').replace(/(\/za-)(\?[^\/]+)$/, '/za.gif$2');
         }
       }
     }else if (!/sa\.gif[^\/]*$/.test(sd.para.server_url)) {
-      sd.para.server_url = sd.para.server_url.replace(/\/sa$/, '/sa.gif').replace(/(\/sa)(\?[^\/]+)$/, '/sa.gif$2');
+      sd.para.server_url = sd.para.server_url.replace(/\/za-$/, '/za.gif').replace(/(\/za-)(\?[^\/]+)$/, '/za.gif$2');
     }
     if(typeof sd.para.server_url === 'string'){
-      sd.para.debug_mode_url = sd.para.debug_mode_url || sd.para.server_url.replace('sa.gif', 'debug');
+      sd.para.debug_mode_url = sd.para.debug_mode_url || sd.para.server_url.replace('za.gif', 'debug');
     }
     // 是否需要非cache，等于每次请求文件
     if (sd.para.noCache === true) {
@@ -2214,9 +2214,9 @@ sdk的初始化和组织
   };
   
   
-  sd.setPreConfig = function(sa){
-    sd.para = sa.para;
-    sd._q = sa._q;
+  sd.setPreConfig = function(za){
+    sd.para = za.para;
+    sd._q = za._q;
   };
   
   
@@ -2229,7 +2229,7 @@ sdk的初始化和组织
   };
   
   sd.log = function() {
-    if((_.sessionStorage.isSupport() && sessionStorage.getItem('sensorsdata_jssdk_debug') === 'true') || sd.para.show_log){
+    if((_.sessionStorage.isSupport() && sessionStorage.getItem('zalldata_jssdk_debug') === 'true') || sd.para.show_log){
   
       if(sd.para.show_log === true || sd.para.show_log === 'string' || sd.para.show_log === false){
         arguments[0] = _.formatJsonString(arguments[0]);
@@ -2251,7 +2251,7 @@ sdk的初始化和组织
   sd.enableLocalLog = function() {
     if(_.sessionStorage.isSupport()) {
       try {
-        sessionStorage.setItem('sensorsdata_jssdk_debug', 'true');
+        sessionStorage.setItem('zalldata_jssdk_debug', 'true');
       } catch (e) {
         sd.log('enableLocalLog error: ' + e.message);
         // handle the exception here.
@@ -2264,7 +2264,7 @@ sdk的初始化和组织
    */
   sd.disableLocalLog = function() {
     if(_.sessionStorage.isSupport()) {
-      sessionStorage.removeItem('sensorsdata_jssdk_debug');
+      sessionStorage.removeItem('zalldata_jssdk_debug');
     }
   };
   
@@ -2303,7 +2303,7 @@ sdk的初始化和组织
       */
     },
     _sendDebug: function(debugString) {
-      sd.track('_sensorsdata2019_debug', {
+      sd.track('_zalldata2019_debug', {
         _jssdk_debug_info: debugString
       });
     },
@@ -2367,7 +2367,7 @@ sdk的初始化和组织
         if(!_.isObject(obj) || _.isEmptyObject(obj)){
           return false;
         }
-        var saveData = _.localStorage.parse('sensorsdata_2015_jssdk_profile');
+        var saveData = _.localStorage.parse('zalldata_2015_jssdk_profile');
         var isNeedSend = false;
         if(_.isObject(saveData) && !_.isEmptyObject(saveData)){
           for(var i in obj){
@@ -2377,11 +2377,11 @@ sdk的初始化和组织
             }
           }
           if(isNeedSend){
-            _.localStorage.set('sensorsdata_2015_jssdk_profile',JSON.stringify(saveData));
+            _.localStorage.set('zalldata_2015_jssdk_profile',JSON.stringify(saveData));
             sd.setProfile(obj);
           }
         }else{
-          _.localStorage.set('sensorsdata_2015_jssdk_profile',JSON.stringify(obj));
+          _.localStorage.set('zalldata_2015_jssdk_profile',JSON.stringify(obj));
           sd.setProfile(obj);
         }
        },
@@ -2753,7 +2753,7 @@ sdk的初始化和组织
       }
     };
     /*
-     * 这个接口是一个较为复杂的功能，请在使用前先阅读相关说明:http://www.sensorsdata.cn/manual/track_signup.html，并在必要时联系我们的技术支持人员。
+     * 这个接口是一个较为复杂的功能，请在使用前先阅读相关说明:http://www.zalldata.cn/manual/track_signup.html，并在必要时联系我们的技术支持人员。
      * @param {string} distinct_id
      * @param {string} event
      * @param {object} properties
@@ -3001,7 +3001,7 @@ sdk的初始化和组织
       var len = localStorage.length;
       for (var i = 0; i < len; i++) {
         var key = localStorage.key(i);
-        if(key.indexOf('sawebjssdk-') === 0 && /^sawebjssdk\-\d+$/.test(key)){
+        if(key.indexOf('zawebjssdk-') === 0 && /^zawebjssdk\-\d+$/.test(key)){
           val = localStorage.getItem(key);
           if(val){
             val = _.safeJSONParse(val);
@@ -3026,7 +3026,7 @@ sdk的初始化和组织
     },
     writeStore:function(data){
       var uuid = String(Math.random()).slice(2,5)+String(Math.random()).slice(2,5)+String((new Date()).getTime()).slice(3);
-      localStorage.setItem('sawebjssdk-'+uuid,JSON.stringify(data));
+      localStorage.setItem('zawebjssdk-'+uuid,JSON.stringify(data));
     }
   };
   
@@ -3252,11 +3252,11 @@ sdk的初始化和组织
   
     // 打通app传数据给app
     if(sd.para.use_app_track === true || sd.para.use_app_track === 'only'){
-      if((typeof SensorsData_APP_JS_Bridge === 'object') && (SensorsData_APP_JS_Bridge.sensorsdata_verify || SensorsData_APP_JS_Bridge.sensorsdata_track)){
+      if((typeof ZallData_APP_JS_Bridge === 'object') && (ZallData_APP_JS_Bridge.zalldata_verify || ZallData_APP_JS_Bridge.zalldata_track)){
         // 如果有新版方式，优先用新版
-        if(SensorsData_APP_JS_Bridge.sensorsdata_verify){
+        if(ZallData_APP_JS_Bridge.zalldata_verify){
           // 如果校验通过则结束，不通过则降级改成h5继续发送
-          if(!SensorsData_APP_JS_Bridge.sensorsdata_verify(JSON.stringify(_.extend({server_url:sd.para.server_url},originData)))){
+          if(!ZallData_APP_JS_Bridge.zalldata_verify(JSON.stringify(_.extend({server_url:sd.para.server_url},originData)))){
             sd.debug.apph5({
               data: originData,
               step: '3.1',
@@ -3268,13 +3268,13 @@ sdk的初始化和组织
             (typeof callback === 'function') && callback();
           }
         }else{
-          SensorsData_APP_JS_Bridge.sensorsdata_track(JSON.stringify(_.extend({server_url:sd.para.server_url},originData)));
+          ZallData_APP_JS_Bridge.zalldata_track(JSON.stringify(_.extend({server_url:sd.para.server_url},originData)));
           (typeof callback === 'function') && callback();
         }
-      }else if((/sensors-verify/.test(navigator.userAgent) || /sa-sdk-ios/.test(navigator.userAgent)) && !window.MSStream){
+      }else if((/zall-verify/.test(navigator.userAgent) || /za-sdk-ios/.test(navigator.userAgent)) && !window.MSStream){
         var iframe = null;
-        if(/sensors-verify/.test(navigator.userAgent)){
-          var match = navigator.userAgent.match(/sensors-verify\/([^\s]+)/);
+        if(/zall-verify/.test(navigator.userAgent)){
+          var match = navigator.userAgent.match(/zall-verify\/([^\s]+)/);
           if(match && match[0] && (typeof match[1] === 'string') && (match[1].split('?').length === 2)){
             match = match[1].split('?');
             var hostname = null;
@@ -3285,7 +3285,7 @@ sdk的初始化和组织
             }catch(e){};
             if (hostname && hostname === match[0] && project && project === match[1]) {
               iframe = document.createElement('iframe');
-              iframe.setAttribute('src', 'sensorsanalytics://trackEvent?event=' + encodeURIComponent(JSON.stringify(_.extend({server_url:sd.para.server_url},originData))));
+              iframe.setAttribute('src', 'zallanalytics://trackEvent?event=' + encodeURIComponent(JSON.stringify(_.extend({server_url:sd.para.server_url},originData))));
               document.documentElement.appendChild(iframe);
               iframe.parentNode.removeChild(iframe);
               iframe = null;
@@ -3301,7 +3301,7 @@ sdk的初始化和组织
           }
         }else{
           iframe = document.createElement('iframe');
-          iframe.setAttribute('src', 'sensorsanalytics://trackEvent?event=' + encodeURIComponent(JSON.stringify(_.extend({server_url:sd.para.server_url},originData))));
+          iframe.setAttribute('src', 'zallanalytics://trackEvent?event=' + encodeURIComponent(JSON.stringify(_.extend({server_url:sd.para.server_url},originData))));
           document.documentElement.appendChild(iframe);
           iframe.parentNode.removeChild(iframe);
           iframe = null;
@@ -3403,7 +3403,7 @@ sdk的初始化和组织
       }
     },
     properties: function(p) {
-      _.strip_sa_properties(p);
+      _.strip_za_properties(p);
       if (p) {
         if (_.isObject(p)) {
           if (this.checkPropertiesKey(p)) {
@@ -3423,7 +3423,7 @@ sdk的初始化和组织
       }
     },
     propertiesMust: function(p) {
-      _.strip_sa_properties(p);
+      _.strip_za_properties(p);
       if (p === undefined || !_.isObject(p) || _.isEmptyObject(p)) {
         sd.log('properties必须是对象且有值');
         return true;
@@ -3643,7 +3643,7 @@ sdk的初始化和组织
           }
         },
         initSessionState: function() {
-          var ds = _.cookie.get('sensorsdata2015session');
+          var ds = _.cookie.get('zalldata2015session');
           var state = null;
           if (ds !== null && (typeof (state = JSON.parse(ds)) === 'object')) {
             this._sessionState = state || {};
@@ -3713,7 +3713,7 @@ sdk的初始化和组织
       },
       sessionSave: function(props) {
         this._sessionState = props;
-        _.cookie.set('sensorsdata2015session', JSON.stringify(this._sessionState), 0);
+        _.cookie.set('zalldata2015session', JSON.stringify(this._sessionState), 0);
       },
       save: function() {
         _.cookie.set(this.getCookieName(), JSON.stringify(this._state), 73000, sd.para.cross_subdomain);
@@ -3727,12 +3727,12 @@ sdk的初始化和组织
             // do nothing.
           }
           if(typeof sub === 'string' && sub !== ''){
-            sub = 'sa_jssdk_2015_' + sub.replace(/\./g, '_');
+            sub = 'za_jssdk_2015_' + sub.replace(/\./g, '_');
           }else{
-            sub = 'sa_jssdk_2015_root';
+            sub = 'za_jssdk_2015_root';
           }
         }else{
-          sub = 'sensorsdata2015jssdkcross';
+          sub = 'zalldata2015jssdkcross';
         }
         return sub;
       },
@@ -3792,7 +3792,7 @@ sdk的初始化和组织
     setDeviceId: function(uuid){
       // deviceid必须跨子域
       var device_id = null;
-      var ds = _.cookie.get('sensorsdata2015jssdkcross');
+      var ds = _.cookie.get('zalldata2015jssdkcross');
       var state = {};
       if (ds != null && _.isJSONString(ds)) {
         state = JSON.parse(ds);
@@ -3807,7 +3807,7 @@ sdk的初始化和组织
         store.set('$device_id',device_id);
       }else{
         state.$device_id = device_id;
-        _.cookie.set('sensorsdata2015jssdkcross',JSON.stringify(state),null,true);
+        _.cookie.set('zalldata2015jssdkcross',JSON.stringify(state),null,true);
       }
   
       if(sd.para.is_track_device_id){
@@ -3948,11 +3948,11 @@ sdk的初始化和组织
         }
         if(web_url && web_url[0] && web_url[1]){
           if(web_url[1].slice(0,5) === 'http:' && location.protocol === 'https'){
-            sd.errorMsg = '您的当前页面是https的地址，神策分析环境也必须是https！';
+            sd.errorMsg = '您的当前页面是https的地址，卓尔分析环境也必须是https！';
           }
         }
         if(!sd.para.heatmap_url){
-          sd.para.heatmap_url = location.protocol + '//static.sensorsdata.cn/sdk/'+ sd.lib_version + '/heatmap.min.js';
+          sd.para.heatmap_url = location.protocol + '//static.zalldata.cn/sdk/'+ sd.lib_version + '/heatmap.min.js';
         }
   
       },
@@ -4242,8 +4242,8 @@ sdk的初始化和组织
       _.loadScript({
         success:function(){
             setTimeout(function(){
-              if(typeof sa_jssdk_app_define_mode !== 'undefined'){
-                sa_jssdk_app_define_mode(sd);
+              if(typeof za_jssdk_app_define_mode !== 'undefined'){
+                za_jssdk_app_define_mode(sd);
               }
             },0);
         },
@@ -4253,9 +4253,9 @@ sdk的初始化和组织
       });
     },
     prepare:function(todo){
-      var match = location.search.match(/sa-request-id=([^&#]+)/);
-      var type = location.search.match(/sa-request-type=([^&#]+)/);
-      var web_url = location.search.match(/sa-request-url=([^&#]+)/);
+      var match = location.search.match(/za-request-id=([^&#]+)/);
+      var type = location.search.match(/za-request-type=([^&#]+)/);
+      var web_url = location.search.match(/za-request-url=([^&#]+)/);
   
       var me = this;
       function isReady(data,type,url){
@@ -4263,11 +4263,11 @@ sdk的初始化和组织
           _.loadScript({
              success:function(){
                  setTimeout(function(){
-                    if(typeof sa_jssdk_heatmap_render !== 'undefined'){
-                     sa_jssdk_heatmap_render(sd,data,type,url);
+                    if(typeof za_jssdk_heatmap_render !== 'undefined'){
+                     za_jssdk_heatmap_render(sd,data,type,url);
                       if (typeof console === 'object' && typeof console.log === 'function') {
                         if (!(sd.heatmap_version && (sd.heatmap_version === sd.lib_version))) {
-                          console.log('heatmap.js与sensorsdata.js版本号不一致，可能存在风险!');
+                          console.log('heatmap.js与zalldata.js版本号不一致，可能存在风险!');
                         }
                       }
                     }
@@ -4287,32 +4287,32 @@ sdk的初始化和组织
         heatmap.setNotice(web_url);
         if(_.sessionStorage.isSupport()){
           if(web_url && web_url[0] && web_url[1]){
-            sessionStorage.setItem('sensors_heatmap_url',decodeURIComponent(web_url[1]));
+            sessionStorage.setItem('zall_heatmap_url',decodeURIComponent(web_url[1]));
           }
-          sessionStorage.setItem('sensors_heatmap_id',match[1]);
+          sessionStorage.setItem('zall_heatmap_id',match[1]);
   
             if(type && type[0] && type[1]){
               if(type[1] === '1' || type[1] === '2' || type[1] === '3'){
                   type = type[1];
-                  sessionStorage.setItem('sensors_heatmap_type',type);
+                  sessionStorage.setItem('zall_heatmap_type',type);
               }else{
                   type = null;
               }
             }else{
-                if(sessionStorage.getItem('sensors_heatmap_type') !== null){
-                  type = sessionStorage.getItem('sensors_heatmap_type');
+                if(sessionStorage.getItem('zall_heatmap_type') !== null){
+                  type = sessionStorage.getItem('zall_heatmap_type');
                 }else{
                   type = null;
                 }
             }
         }
         isReady(match[1],type);
-      } else if(_.sessionStorage.isSupport() && typeof sessionStorage.getItem('sensors_heatmap_id') === 'string'){
+      } else if(_.sessionStorage.isSupport() && typeof sessionStorage.getItem('zall_heatmap_id') === 'string'){
         heatmap.setNotice();
-        isReady(sessionStorage.getItem('sensors_heatmap_id'),sessionStorage.getItem('sensors_heatmap_type'),location.href);
+        isReady(sessionStorage.getItem('zall_heatmap_id'),sessionStorage.getItem('zall_heatmap_type'),location.href);
       }else{
         //圈选模式加载 define.js 但是不影响正常数据采集流程
-        if(sd.para.use_app_track === true && ((typeof SensorsData_iOS_JS_Bridge === 'object' && SensorsData_iOS_JS_Bridge.sensorsdata_define_mode) || (typeof SensorsData_APP_JS_Bridge === 'object' && SensorsData_APP_JS_Bridge.sensorsdata_define_mode))){
+        if(sd.para.use_app_track === true && ((typeof ZallData_iOS_JS_Bridge === 'object' && ZallData_iOS_JS_Bridge.zalldata_define_mode) || (typeof ZallData_APP_JS_Bridge === 'object' && ZallData_APP_JS_Bridge.zalldata_define_mode))){
           if (!_.isObject(sd.para.heatmap) || sd.para.heatmap.clickmap !== 'default') {
             alert('H5 未开启全埋点！');
           }else{
@@ -4360,22 +4360,22 @@ sdk的初始化和组织
       }
       //android
       function getAndroid(){
-        if(typeof window.SensorsData_APP_JS_Bridge === 'object' && window.SensorsData_APP_JS_Bridge.sensorsdata_call_app){
-          app_info = SensorsData_APP_JS_Bridge.sensorsdata_call_app();
+        if(typeof window.ZallData_APP_JS_Bridge === 'object' && window.ZallData_APP_JS_Bridge.zalldata_call_app){
+          app_info = ZallData_APP_JS_Bridge.zalldata_call_app();
           if(_.isJSONString(app_info)){
             app_info = JSON.parse(app_info);
           }
         }
       }
       //ios
-      window.sensorsdata_app_js_bridge_call_js = function(data){
+      window.zalldata_app_js_bridge_call_js = function(data){
         setAppInfo(data);
       };
       // 通知iOS
       function calliOS() {
         if (/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream) {
           var iframe = document.createElement("iframe");
-          iframe.setAttribute("src", "sensorsanalytics://getAppInfo");
+          iframe.setAttribute("src", "zallanalytics://getAppInfo");
           document.documentElement.appendChild(iframe);
           iframe.parentNode.removeChild(iframe);
           iframe = null;
@@ -4453,7 +4453,7 @@ sdk的初始化和组织
     sd[method] = function() {
       if (!sd.readyState.getState()) {
         try {
-          console.error('请先初始化神策JS SDK');
+          console.error('请先初始化卓尔JS SDK');
         } catch (e) {}
         return;
       }
@@ -4463,19 +4463,19 @@ sdk的初始化和组织
   
   
   
-  if (typeof window['sensorsDataAnalytic201505'] === 'string'){
+  if (typeof window['zallDataAnalytic201505'] === 'string'){
     //异步或者同步
-    sd.setPreConfig(window[sensorsDataAnalytic201505]);
-    window[sensorsDataAnalytic201505] = sd;
+    sd.setPreConfig(window[zallDataAnalytic201505]);
+    window[zallDataAnalytic201505] = sd;
     sd.init();
-    window['sensorsDataAnalytic201505'] = sd;
-  } else if (typeof window['sensorsDataAnalytic201505'] === 'undefined'){
+    window['zallDataAnalytic201505'] = sd;
+  } else if (typeof window['zallDataAnalytic201505'] === 'undefined'){
     //module模式，或者webpack打包
-    window['sensorsDataAnalytic201505'] = sd;
+    window['zallDataAnalytic201505'] = sd;
     return sd;
   } else {
     //已经使用过以上两种方式的话
-    return window['sensorsDataAnalytic201505'];
+    return window['zallDataAnalytic201505'];
   }
   
   

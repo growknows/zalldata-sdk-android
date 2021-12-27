@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.zalldata.zall.android.demo">
+    package="com.zalldata.analytics.android.demo">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -30,14 +30,14 @@
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
-                <category android:name="android.intent.category.BROWZABLE" />
+                <category android:name="android.intent.category.BROWSABLE" />
                 <category android:name="android.intent.category.DEFAULT" />
 
                 <data android:scheme="sf20191010nb" />
             </intent-filter>
         </activity>
         <meta-data
-            android:name="com.zalldata.zall.android.EnableLogging"
+            android:name="com.zalldata.analytics.android.EnableLogging"
             android:value="true" />
 
     </application>

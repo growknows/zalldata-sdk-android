@@ -130,7 +130,7 @@
                 <button id='test'>123i</button>
             </a>
             <div id='default'>
-                    <button data='test' sensors-disable=true>disbtn</button>
+                    <button data='test' zall-disable=true>disbtn</button>
                     <button data='test' title="1234" id='goodbtn' class='ww'>button</button>
                     <div>点击输入text：<input id='a' type="text">提交：<input type="submit"></div>
                     <button id="alertbtn">弹窗</button>
@@ -145,11 +145,11 @@
                      <!-- <iframe src="http://www.ls.com:8080/indexdemo.html?utm_source=1233demo" frameborder="0"></iframe> -->
                  </div> 
                  <div id="login">
-                     <input type="text"  sensors-disable = 'true' id='loginid'>
-                     <button id="loginbtn" sensors-disable = 'true'>login</button>
-                     <button id="logoutbtn" sensors-disable = 'true' >logout</button>
-                     <input type="text" id='sensorscookie' sensors-disable = 'true' >
-                     <button id='decodeurl' sensors-disable = 'true'>decode</button>
+                     <input type="text"  zall-disable = 'true' id='loginid'>
+                     <button id="loginbtn" zall-disable = 'true'>login</button>
+                     <button id="logoutbtn" zall-disable = 'true' >logout</button>
+                     <input type="text" id='zallcookie' zall-disable = 'true' >
+                     <button id='decodeurl' zall-disable = 'true'>decode</button>
                  </div> 
                  <div id='text'>
                      <div>
@@ -211,8 +211,8 @@
          
          alertbtn.onclick = function(){
              alert(789);         }
-         sensors.quick('isReady',function(){
-             var pro = sensors.getPresetProperties()
+         zall.quick('isReady',function(){
+             var pro = zall.getPresetProperties()
          console.log(pro,'pro-----')
          })
          var btnid = 1;
@@ -259,13 +259,13 @@
                     }
                     page[2].classList.add('active');
          }
-        //  sensors.getPresetProperties();
-        //  sensors.quick('isReady',function(){
-        //     console.log(sensors.getPresetProperties())
+        //  zall.getPresetProperties();
+        //  zall.quick('isReady',function(){
+        //     console.log(zall.getPresetProperties())
         //  })
          var funcstore = {
              decodeurlfunc : function(){
-                var cookie2015 = document.getElementById('sensorscookie');
+                var cookie2015 = document.getElementById('zallcookie');
                 var cookieval = "'" + cookie2015.value + "'";
                 console.log(decodeURIComponent(cookieval));
                 cookie2015.value = '';
@@ -273,14 +273,14 @@
              loginfunc : function(){
                 var loginid = document.getElementById('loginid');
                 var val = loginid.value;
-                sensors.login(val);
+                zall.login(val);
                 loginid.value = '';
              },
              logoutfunc : function(){
-                 sensors.quick('autoTrack',{
+                 zall.quick('autoTrack',{
                      ss:'logout'
                  });
-                sensors.logout();
+                zall.logout();
                 console.log('logout');
              }
          }
@@ -288,7 +288,7 @@
          loginbtn.onclick = function(){funcstore.loginfunc();}
          logoutbtn.onclick = function(){funcstore.logoutfunc();}
          trackimg.onclick = function(){
-             sensors.quick('trackHeatMap',this,{
+             zall.quick('trackHeatMap',this,{
                  platform:'trackheatmap'
              },function(){
                  console.log('trackheatmap');
@@ -298,9 +298,9 @@
              event.stopPropagation();
          }
         abtn.onclick = function(){
-            sensors.track('n',{});
-            sensors.track('d',{});
-            sensors.track('r',{});
+            zall.track('n',{});
+            zall.track('d',{});
+            zall.track('r',{});
         }
         document.cookie = "ls=123;expires=‘234'"
      </script>

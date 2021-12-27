@@ -1,5 +1,5 @@
 /*
- * Created by guo on 2020/1/3.
+ * Created by guo on 2020/10/20.
  * Copyright 2015－2021 Zall Data Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -114,7 +114,7 @@ abstract class AbstractZallDataAPI implements IZallDataAPI {
     protected List<Class> mIgnoredViewTypeList = new ArrayList<>();
     /* LoginId */
     protected String mLoginId = null;
-    /* ZallData 地址 */
+    /* ZallAnalytics 地址 */
     protected String mServerUrl;
     protected String mOriginServerUrl;
     /* SDK 配置是否初始化 */
@@ -209,7 +209,7 @@ abstract class AbstractZallDataAPI implements IZallDataAPI {
                 delayInitTask();
             }
             if (ZALog.isLogEnabled()) {
-                ZALog.i(TAG, String.format(Locale.CHINA, "Initialized the instance of Zall Data SDK with server"
+                ZALog.i(TAG, String.format(Locale.CHINA, "Initialized the instance of Zall Analytics SDK with server"
                         + " url '%s', flush interval %d ms, debugMode: %s", mServerUrl, mZAConfigOptions.mFlushInterval, debugMode));
             }
             mLoginId = DbAdapter.getInstance().getLoginId();
@@ -1068,7 +1068,7 @@ abstract class AbstractZallDataAPI implements IZallDataAPI {
         if (mZAConfigOptions.mInvokeLog) {
             enableLog(mZAConfigOptions.mLogEnabled);
         } else {
-            enableLog(configBundle.getBoolean("com.zalldata.zall.android.EnableLogging",
+            enableLog(configBundle.getBoolean("com.zalldata.analytics.android.EnableLogging",
                     this.mDebugMode != ZallDataAPI.DebugMode.DEBUG_OFF));
         }
         ZALog.setDisableSDK(mZAConfigOptions.isDisableSDK);
@@ -1079,12 +1079,12 @@ abstract class AbstractZallDataAPI implements IZallDataAPI {
         }
 
         if (mZAConfigOptions.mFlushInterval == 0) {
-            mZAConfigOptions.setFlushInterval(configBundle.getInt("com.zalldata.zall.android.FlushInterval",
+            mZAConfigOptions.setFlushInterval(configBundle.getInt("com.zalldata.analytics.android.FlushInterval",
                     15000));
         }
 
         if (mZAConfigOptions.mFlushBulkSize == 0) {
-            mZAConfigOptions.setFlushBulkSize(configBundle.getInt("com.zalldata.zall.android.FlushBulkSize",
+            mZAConfigOptions.setFlushBulkSize(configBundle.getInt("com.zalldata.analytics.android.FlushBulkSize",
                     100));
         }
 
@@ -1098,7 +1098,7 @@ abstract class AbstractZallDataAPI implements IZallDataAPI {
             DbAdapter.getInstance().commitSubProcessFlushState(false);
         }
 
-        this.mAutoTrack = configBundle.getBoolean("com.zalldata.zall.android.AutoTrack",
+        this.mAutoTrack = configBundle.getBoolean("com.zalldata.analytics.android.AutoTrack",
                 false);
         if (mZAConfigOptions.mAutoTrackEventType != 0) {
             enableAutoTrack(mZAConfigOptions.mAutoTrackEventType);
@@ -1106,12 +1106,12 @@ abstract class AbstractZallDataAPI implements IZallDataAPI {
         }
 
         if (!mZAConfigOptions.mInvokeHeatMapEnabled) {
-            mZAConfigOptions.mHeatMapEnabled = configBundle.getBoolean("com.zalldata.zall.android.HeatMap",
+            mZAConfigOptions.mHeatMapEnabled = configBundle.getBoolean("com.zalldata.analytics.android.HeatMap",
                     false);
         }
 
         if (!mZAConfigOptions.mInvokeVisualizedEnabled) {
-            mZAConfigOptions.mVisualizedEnabled = configBundle.getBoolean("com.zalldata.zall.android.VisualizedAutoTrack",
+            mZAConfigOptions.mVisualizedEnabled = configBundle.getBoolean("com.zalldata.analytics.android.VisualizedAutoTrack",
                     false);
         }
 
@@ -1126,17 +1126,17 @@ abstract class AbstractZallDataAPI implements IZallDataAPI {
             isChangeEnableNetworkFlag = true;
         }
 
-        SHOW_DEBUG_INFO_VIEW = configBundle.getBoolean("com.zalldata.zall.android.ShowDebugInfoView",
+        SHOW_DEBUG_INFO_VIEW = configBundle.getBoolean("com.zalldata.analytics.android.ShowDebugInfoView",
                 true);
 
-        this.mDisableDefaultRemoteConfig = configBundle.getBoolean("com.zalldata.zall.android.DisableDefaultRemoteConfig",
+        this.mDisableDefaultRemoteConfig = configBundle.getBoolean("com.zalldata.analytics.android.DisableDefaultRemoteConfig",
                 false);
 
         if (mZAConfigOptions.isDataCollectEnable) {
             mIsMainProcess = AppInfoUtils.isMainProcess(mContext, configBundle);
         }
 
-        this.mDisableTrackDeviceId = configBundle.getBoolean("com.zalldata.zall.android.DisableTrackDeviceId",
+        this.mDisableTrackDeviceId = configBundle.getBoolean("com.zalldata.analytics.android.DisableTrackDeviceId",
                 false);
     }
 

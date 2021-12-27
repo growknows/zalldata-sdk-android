@@ -1,5 +1,5 @@
 /*
- * Created by guo on 2020/11/11.
+ * Created by guo on 2020/08/31.
  * Copyright 2015－2021 Zall Data Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -50,7 +50,7 @@ public class ZallDataLoadingDialog extends Dialog {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.zall_data_dialog_loading);
+        setContentView(R.layout.zall_analytics_dialog_loading);
         Window window = getWindow();
         setCancelable(false);
         if (window != null) {
@@ -70,11 +70,11 @@ public class ZallDataLoadingDialog extends Dialog {
     }
 
     private void initView() {
-        mLoadingLayout = findViewById(R.id.zall_data_rotate_layout);
-        ImageView imageView1 = findViewById(R.id.zalldata_zall_loading_image1);
-        ImageView imageView2 = findViewById(R.id.zalldata_zall_loading_image2);
-        ImageView imageView3 = findViewById(R.id.zalldata_zall_loading_image3);
-        ImageView imageView4 = findViewById(R.id.zalldata_zall_loading_image4);
+        mLoadingLayout = findViewById(R.id.zall_analytics_rotate_layout);
+        ImageView imageView1 = findViewById(R.id.zalldata_analytics_loading_image1);
+        ImageView imageView2 = findViewById(R.id.zalldata_analytics_loading_image2);
+        ImageView imageView3 = findViewById(R.id.zalldata_analytics_loading_image3);
+        ImageView imageView4 = findViewById(R.id.zalldata_analytics_loading_image4);
         setCircleBackground(imageView1, "#00C48E");
         setCircleBackground(imageView2, "#33D0A5");
         setCircleBackground(imageView3, "#CCF3E8");

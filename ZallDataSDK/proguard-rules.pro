@@ -16,8 +16,8 @@
 #   public *;
 #}
 
--dontwarn com.zalldata.zall.android.**
--keep class com.zalldata.zall.android.** {
+-dontwarn com.zalldata.analytics.android.**
+-keep class com.zalldata.analytics.android.** {
 *;
 }
 -keep class **.R$* {

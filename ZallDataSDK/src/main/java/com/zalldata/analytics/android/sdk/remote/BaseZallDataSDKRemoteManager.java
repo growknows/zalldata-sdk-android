@@ -1,5 +1,5 @@
 /*
- * Created by guo on 2021/1/12.
+ * Created by guo on 2020/11/04.
  * Copyright 2015－2021 Zall Data Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -25,7 +25,7 @@ import android.util.Patterns;
 import com.zalldata.analytics.android.sdk.ZAConfigOptions;
 import com.zalldata.analytics.android.sdk.ZALog;
 import com.zalldata.analytics.android.sdk.ZallDataAPI;
-import com.zalldata.analytics.android.sdk.encrypt.ZAEncryptListener;
+import com.zalldata.analytics.android.sdk.encrypt.SAEncryptListener;
 import com.zalldata.analytics.android.sdk.encrypt.SecreteKey;
 import com.zalldata.analytics.android.sdk.encrypt.ZallDataEncrypt;
 import com.zalldata.analytics.android.sdk.network.HttpCallback;
@@ -120,7 +120,7 @@ public abstract class BaseZallDataSDKRemoteManager {
                             if (types.length == 2) {
                                 String asymmetricType = types[0];
                                 String symmetricType = types[1];
-                                for (ZAEncryptListener encryptListener : mZAConfigOptions.getEncryptors()) {
+                                for (SAEncryptListener encryptListener : mZAConfigOptions.getEncryptors()) {
                                     if (asymmetricType.equals(encryptListener.asymmetricEncryptType())
                                             && symmetricType.equals(encryptListener.symmetricEncryptType())) {
                                         secreteKey.key = keyObject.optString("public_key");

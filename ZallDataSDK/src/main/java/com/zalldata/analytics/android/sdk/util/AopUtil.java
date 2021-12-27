@@ -1,5 +1,5 @@
 /*
- * Created by guo on 2021/11/6.
+ * Created by guo on 2016/12/2.
  * Copyright 2015－2021 Zall Data Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -209,7 +209,7 @@ public class AopUtil {
                 }
 
                 if (activity == null && view != null) {
-                    Object object = view.getTag(R.id.zall_data_tag_view_activity);
+                    Object object = view.getTag(R.id.zall_analytics_tag_view_activity);
                     if (object != null) {
                         if (object instanceof Activity) {
                             activity = (Activity) object;
@@ -394,7 +394,7 @@ public class AopUtil {
     public static String getViewId(View view) {
         String idString = null;
         try {
-            idString = (String) view.getTag(R.id.zall_data_tag_view_id);
+            idString = (String) view.getTag(R.id.zall_analytics_tag_view_id);
             if (TextUtils.isEmpty(idString)) {
                 if (view.getId() != View.NO_ID) {
                     idString = view.getContext().getResources().getResourceEntryName(view.getId());
@@ -540,7 +540,7 @@ public class AopUtil {
             }
 
             //View 被忽略
-            return "1".equals(view.getTag(R.id.zall_data_tag_view_ignored));
+            return "1".equals(view.getTag(R.id.zall_analytics_tag_view_ignored));
 
         } catch (Exception e) {
             com.zalldata.analytics.android.sdk.ZALog.printStackTrace(e);
@@ -683,7 +683,7 @@ public class AopUtil {
                 AopUtil.getScreenNameAndTitleFromFragment(eventJson, fragment, activity);
             }
             //3.获取 View 自定义属性
-            JSONObject p = (JSONObject) view.getTag(R.id.zall_data_tag_view_properties);
+            JSONObject p = (JSONObject) view.getTag(R.id.zall_analytics_tag_view_properties);
             if (p != null) {
                 AopUtil.mergeJSONObject(p, eventJson);
             }
@@ -716,8 +716,8 @@ public class AopUtil {
     public static Object getFragmentFromView(View view, Activity activity) {
         try {
             if (view != null) {
-                String fragmentName = (String) view.getTag(R.id.zall_data_tag_view_fragment_name);
-                String fragmentName2 = (String) view.getTag(R.id.zall_data_tag_view_fragment_name2);
+                String fragmentName = (String) view.getTag(R.id.zall_analytics_tag_view_fragment_name);
+                String fragmentName2 = (String) view.getTag(R.id.zall_analytics_tag_view_fragment_name2);
                 if (!TextUtils.isEmpty(fragmentName2)) {
                     fragmentName = fragmentName2;
                 }
@@ -731,7 +731,7 @@ public class AopUtil {
                     if (activity != null) {
                         Window window = activity.getWindow();
                         if (window != null && window.isActive()) {
-                            Object tag = window.getDecorView().getRootView().getTag(R.id.zall_data_tag_view_fragment_name);
+                            Object tag = window.getDecorView().getRootView().getTag(R.id.zall_analytics_tag_view_fragment_name);
                             if (tag != null) {
                                 fragmentName = traverseParentViewTag(view);
                             }
@@ -807,7 +807,7 @@ public class AopUtil {
             ViewParent parentView = view.getParent();
             String fragmentName = null;
             while (TextUtils.isEmpty(fragmentName) && parentView instanceof View) {
-                fragmentName = (String) ((View) parentView).getTag(R.id.zall_data_tag_view_fragment_name);
+                fragmentName = (String) ((View) parentView).getTag(R.id.zall_analytics_tag_view_fragment_name);
                 parentView = parentView.getParent();
             }
             return fragmentName;

@@ -13,7 +13,7 @@
                     id : 'h' + DefineTagNum
                 };
                 DefineTagNum ++;
-                target.sensorsDefineStore = tagstore;
+                target.zallDefineStore = tagstore;
                 arr.push(target);
             }
             //递归便利获取所有可圈选元素的信息 obj
@@ -96,8 +96,8 @@
             if(zIndex && !isNaN(+zIndex)){
                 indexNum = +zIndex;
             }
-            if(this.sdStore._.isObject(el.sensorsDefineStore)){
-                indexNum += el.sensorsDefineStore.level;
+            if(this.sdStore._.isObject(el.zallDefineStore)){
+                indexNum += el.zallDefineStore.level;
             }
             return indexNum;
         },
@@ -107,8 +107,8 @@
             function testTag(el){
                 if(el.children){
                     for(var i=0;i<el.children.length;i++){
-                        if(typeof(el.children[i].sensorsDefineStore) == 'object' && el.children[i].sensorsDefineStore.id){
-                             elementsArr.push(el.children[i].sensorsDefineStore.id);
+                        if(typeof(el.children[i].zallDefineStore) == 'object' && el.children[i].zallDefineStore.id){
+                             elementsArr.push(el.children[i].zallDefineStore.id);
                         }
                         testTag(el.children[i]);
                     }
@@ -121,7 +121,7 @@
             var po = el.getBoundingClientRect();
             var tagname = el.tagName;
             var obj = {
-                id : el.sensorsDefineStore.id,
+                id : el.zallDefineStore.id,
                 $element_content : this.sdStore._.getElementContent(el,tagname),
                 $element_selector : this.sdStore.heatmap.getDomSelector(el),
                 tagName : tagname,
@@ -168,10 +168,10 @@
                 data : tagDataArr
             };
             console.log(tagDataArr);
-            if(typeof window.SensorsData_App_Visual_Bridge === 'object' && window.SensorsData_App_Visual_Bridge.sensorsdata_visualized_mode && window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.sensorsdataNativeTracker){
-                window.webkit.messageHandlers.sensorsdataNativeTracker.postMessage(JSON.stringify(dataObj));
-            }else if(typeof window.SensorsData_App_Visual_Bridge === 'object' && window.SensorsData_App_Visual_Bridge.sensorsdata_visualized_mode() && window.SensorsData_App_Visual_Bridge.sensorsdata_hover_web_nodes){
-                window.SensorsData_App_Visual_Bridge.sensorsdata_hover_web_nodes(JSON.stringify(dataObj));
+            if(typeof window.ZallData_App_Visual_Bridge === 'object' && window.ZallData_App_Visual_Bridge.zalldata_visualized_mode && window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.zalldataNativeTracker){
+                window.webkit.messageHandlers.zalldataNativeTracker.postMessage(JSON.stringify(dataObj));
+            }else if(typeof window.ZallData_App_Visual_Bridge === 'object' && window.ZallData_App_Visual_Bridge.zalldata_visualized_mode() && window.ZallData_App_Visual_Bridge.zalldata_hover_web_nodes){
+                window.ZallData_App_Visual_Bridge.zalldata_hover_web_nodes(JSON.stringify(dataObj));
             } 
         },
         addDefineListener : function(callback){

@@ -1,5 +1,5 @@
 /*
- * Created by guo on 2020/5/7.
+ * Created by guo on 2015/08/01.
  * Copyright 2015－2021 Zall Data Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -38,7 +38,7 @@ class ZallDataDBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        ZALog.i(TAG, "Creating a new Zall Data DB");
+        ZALog.i(TAG, "Creating a new Zall Analytics DB");
 
         db.execSQL(CREATE_EVENTS_TABLE);
         db.execSQL(EVENTS_TIME_INDEX);
@@ -47,7 +47,7 @@ class ZallDataDBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        ZALog.i(TAG, "Upgrading app, replacing Zall Data DB");
+        ZALog.i(TAG, "Upgrading app, replacing Zall Analytics DB");
 
         db.execSQL(String.format("DROP TABLE IF EXISTS %s", DbParams.TABLE_EVENTS));
         db.execSQL(CREATE_EVENTS_TABLE);

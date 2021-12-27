@@ -1,5 +1,5 @@
 /*
- * Created by guo on 2021/8/21.
+ * Created by guo on 2019/04/18.
  * Copyright 2015－2021 Zall Data Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,7 +18,7 @@
 package com.zalldata.analytics.android.sdk;
 
 import com.zalldata.analytics.android.sdk.encrypt.IPersistentSecretKey;
-import com.zalldata.analytics.android.sdk.encrypt.ZAEncryptListener;
+import com.zalldata.analytics.android.sdk.encrypt.SAEncryptListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -177,7 +177,7 @@ abstract class AbstractZAConfigOptions {
     /**
      * 自定义加密实现接口
      */
-    List<ZAEncryptListener> mEncryptors = new ArrayList<>();
+    List<SAEncryptListener> mEncryptors = new ArrayList<>();
 
     /**
      * 开启采集页面停留时长
@@ -225,7 +225,7 @@ abstract class AbstractZAConfigOptions {
      *
      * @return 注册的加密插件列表
      */
-    public List<ZAEncryptListener> getEncryptors() {
+    public List<SAEncryptListener> getEncryptors() {
         return mEncryptors;
     }
 

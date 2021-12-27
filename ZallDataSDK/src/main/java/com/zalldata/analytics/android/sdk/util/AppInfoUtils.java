@@ -1,5 +1,5 @@
 /*
- * Created by guo on 2021/10/3.
+ * Created by guo on 2020/05/11.
  * Copyright 2015－2021 Zall Data Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -125,7 +125,7 @@ public class AppInfoUtils {
 
         String mainProcessName = AppInfoUtils.getMainProcessName(context);
         if (TextUtils.isEmpty(mainProcessName) && bundle != null) {
-            mainProcessName = bundle.getString("com.zalldata.zall.android.MainProcessName");
+            mainProcessName = bundle.getString("com.zalldata.analytics.android.MainProcessName");
         }
 
         if (TextUtils.isEmpty(mainProcessName)) {

@@ -1,5 +1,5 @@
 /*
- * Created by guo on 2020/11/5.
+ * Created by guo on 2019/03/11.
  * Copyright 2015－2021 Zall Data Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -20,7 +20,7 @@ package com.zalldata.analytics.android.sdk;
 import android.text.TextUtils;
 
 import com.zalldata.analytics.android.sdk.encrypt.IPersistentSecretKey;
-import com.zalldata.analytics.android.sdk.encrypt.ZAEncryptListener;
+import com.zalldata.analytics.android.sdk.encrypt.SAEncryptListener;
 import com.zalldata.analytics.android.sdk.advert.utils.ChannelUtils;
 
 import javax.net.ssl.SSLSocketFactory;
@@ -398,7 +398,7 @@ public final class ZAConfigOptions extends AbstractZAConfigOptions implements Cl
      * @param encryptListener 自定义加密实现接口
      * @return ZAConfigOptions
      */
-    public ZAConfigOptions registerEncryptor(ZAEncryptListener encryptListener) {
+    public ZAConfigOptions registerEncryptor(SAEncryptListener encryptListener) {
         if (encryptListener == null
                 || TextUtils.isEmpty(encryptListener.asymmetricEncryptType())
                 || TextUtils.isEmpty(encryptListener.symmetricEncryptType())) {

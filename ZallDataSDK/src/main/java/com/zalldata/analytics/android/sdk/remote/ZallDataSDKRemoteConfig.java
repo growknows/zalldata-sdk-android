@@ -1,5 +1,5 @@
 /*
- * Created by guo on 2021/4/21.
+ * Created by guo on 2020/11/04.
  * Copyright 2015－2021 Zall Data Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -17,7 +17,7 @@
 
 package com.zalldata.analytics.android.sdk.remote;
 
-import com.zalldata.analytics.android.sdk.ZallDataAutoTrackEventType;
+import com.zalldata.analytics.android.sdk.ZallAnalyticsAutoTrackEventType;
 import com.zalldata.analytics.android.sdk.encrypt.SecreteKey;
 
 import org.json.JSONArray;
@@ -114,20 +114,20 @@ public class ZallDataSDKRemoteConfig {
             return;
         }
 
-        if ((this.autoTrackMode & ZallDataAutoTrackEventType.APP_START) == ZallDataAutoTrackEventType.APP_START) {
-            this.mAutoTrackEventType |= ZallDataAutoTrackEventType.APP_START;
+        if ((this.autoTrackMode & ZallAnalyticsAutoTrackEventType.APP_START) == ZallAnalyticsAutoTrackEventType.APP_START) {
+            this.mAutoTrackEventType |= ZallAnalyticsAutoTrackEventType.APP_START;
         }
 
-        if ((this.autoTrackMode & ZallDataAutoTrackEventType.APP_END) == ZallDataAutoTrackEventType.APP_END) {
-            this.mAutoTrackEventType |= ZallDataAutoTrackEventType.APP_END;
+        if ((this.autoTrackMode & ZallAnalyticsAutoTrackEventType.APP_END) == ZallAnalyticsAutoTrackEventType.APP_END) {
+            this.mAutoTrackEventType |= ZallAnalyticsAutoTrackEventType.APP_END;
         }
 
-        if ((this.autoTrackMode & ZallDataAutoTrackEventType.APP_CLICK) == ZallDataAutoTrackEventType.APP_CLICK) {
-            this.mAutoTrackEventType |= ZallDataAutoTrackEventType.APP_CLICK;
+        if ((this.autoTrackMode & ZallAnalyticsAutoTrackEventType.APP_CLICK) == ZallAnalyticsAutoTrackEventType.APP_CLICK) {
+            this.mAutoTrackEventType |= ZallAnalyticsAutoTrackEventType.APP_CLICK;
         }
 
-        if ((this.autoTrackMode & ZallDataAutoTrackEventType.APP_VIEW_SCREEN) == ZallDataAutoTrackEventType.APP_VIEW_SCREEN) {
-            this.mAutoTrackEventType |= ZallDataAutoTrackEventType.APP_VIEW_SCREEN;
+        if ((this.autoTrackMode & ZallAnalyticsAutoTrackEventType.APP_VIEW_SCREEN) == ZallAnalyticsAutoTrackEventType.APP_VIEW_SCREEN) {
+            this.mAutoTrackEventType |= ZallAnalyticsAutoTrackEventType.APP_VIEW_SCREEN;
         }
     }
 

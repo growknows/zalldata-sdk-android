@@ -1,5 +1,5 @@
 /*
- * Created by guo on 2020/9/8.
+ * Created by guo on 2021/03/22.
  * Copyright 2015－2021 Zall Data Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -95,7 +95,7 @@ class EncryptUtils {
             int offSet = 0;
             byte[] cache;
             /*
-             * RZA 最大加密明文大小：1024 位公钥：117，2048 为公钥：245
+             * RSA 最大加密明文大小：1024 位公钥：117，2048 为公钥：245
              */
             int MAX_ENCRYPT_BLOCK = 245;
             while (contentLen - offSet > 0) {

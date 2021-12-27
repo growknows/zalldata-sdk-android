@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Created by guo on 2021/4/2.
+  ~ Created by guo on 2020/11/25.
   ~ Copyright 2015－2021 Zall Data Inc.
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
@@ -24,13 +24,13 @@
     android:orientation="vertical"
     tools:context=".activity.VerticalFragmentsActivity">
     <fragment
-        android:name="com.zalldata.zall.android.demo.fragment.app.Frg_app_1"
+        android:name="com.zalldata.analytics.android.demo.fragment.app.Frg_app_1"
         android:id="@+id/fragment1"
         android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="0dp"/>
     <fragment
-        android:name="com.zalldata.zall.android.demo.fragment.app.Frg_app_2"
+        android:name="com.zalldata.analytics.android.demo.fragment.app.Frg_app_2"
         android:id="@+id/fragment2"
         android:layout_weight="1"
         android:layout_width="match_parent"

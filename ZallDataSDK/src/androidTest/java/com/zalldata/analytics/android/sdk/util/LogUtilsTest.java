@@ -1,7 +1,7 @@
 package com.zalldata.analytics.android.sdk.util;
 
 /*
- * Created by guo on 2020/9/1.
+ * Created by guo on 2019/10/15.
  * Copyright 2015－2021 Zall Data Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");

@@ -1,5 +1,5 @@
 /*
- * Created by guo on 2020/2/18.
+ * Created by guo on 2015/08/01.
  * Copyright 2015－2021 Zall Data Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -321,7 +321,7 @@ public class ViewSnapshot {
 
             j.name("za_id_name").value(getResName(view));
             try {
-                String saId = (String) view.getTag(R.id.zall_data_tag_view_id);
+                String saId = (String) view.getTag(R.id.zall_analytics_tag_view_id);
                 if (!TextUtils.isEmpty(saId)) {
                     j.name("za_id_name").value(saId);
                 }

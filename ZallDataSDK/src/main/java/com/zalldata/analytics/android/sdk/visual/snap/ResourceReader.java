@@ -1,5 +1,5 @@
 /*
- * Created by guo on 2020/6/10.
+ * Created by guo on 2015/08/01.
  * Copyright 2015－2021 Zall Data Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -119,7 +119,7 @@ public abstract class ResourceReader implements ResourceIds {
                             + " the directive above, you can add the following to your AndroidManifest.xml file"
                             + " to explicitly point the ZallData library to the appropriate library for your"
                             + " resources class:\n\n"
-                            + "<meta-data android:name=\"com.zalldata.zall.android.ResourcePackageName\""
+                            + "<meta-data android:name=\"com.zalldata.analytics.android.ResourcePackageName\""
                             + " android:value=\"YOUR_PACKAGE_NAME\" />\n\n"
                             + "where YOUR_PACKAGE_NAME is the same string you use for the \"package\" attribute"
                             + " in your <manifest> tag.");

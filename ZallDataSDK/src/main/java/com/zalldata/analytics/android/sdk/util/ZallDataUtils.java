@@ -1,5 +1,5 @@
 /*
- * Created by guo on 2021/6/4.
+ * Created by guo on 2015/08/01.
  * Copyright 2015－2021 Zall Data Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -272,7 +272,7 @@ public final class ZallDataUtils {
     }
 
     public static SharedPreferences getSharedPreferences(Context context) {
-        return ZASpUtils.getSharedPreferences(context, SHARED_PREF_EDITS_FILE, Context.MODE_PRIVATE);
+        return SASpUtils.getSharedPreferences(context, SHARED_PREF_EDITS_FILE, Context.MODE_PRIVATE);
     }
 
     static String getToolbarTitle(Activity activity) {
@@ -716,14 +716,14 @@ public final class ZallDataUtils {
         }
         try {
             long currentOnClickTimestamp = SystemClock.elapsedRealtime();
-            String tag = (String) view.getTag(R.id.zall_data_tag_view_onclick_timestamp);
+            String tag = (String) view.getTag(R.id.zall_analytics_tag_view_onclick_timestamp);
             if (!TextUtils.isEmpty(tag)) {
                 long lastOnClickTimestamp = Long.parseLong(tag);
                 if ((currentOnClickTimestamp - lastOnClickTimestamp) < 500) {
                     return true;
                 }
             }
-            view.setTag(R.id.zall_data_tag_view_onclick_timestamp, String.valueOf(currentOnClickTimestamp));
+            view.setTag(R.id.zall_analytics_tag_view_onclick_timestamp, String.valueOf(currentOnClickTimestamp));
         } catch (Exception e) {
             ZALog.printStackTrace(e);
         }

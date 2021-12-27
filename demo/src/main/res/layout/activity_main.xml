@@ -5,7 +5,7 @@
 
         <variable
             name="handlers"
-            type="com.zalldata.zall.android.demo.MainActivity" />
+            type="com.zalldata.analytics.android.demo.MainActivity" />
     </data>
 
     <ScrollView

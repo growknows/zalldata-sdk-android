@@ -1,5 +1,5 @@
 /*
- * Created by guo on 2021/8/12.
+ * Created by guo on 2017/9/7.
  * Copyright 2015－2021 Zall Data Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -68,7 +68,7 @@ public class HeatMapService {
             }
             if (Build.VERSION.SDK_INT >= 16) {
                 String resourcePackageName =
-                        configBundle.getString("com.zalldata.zall.android.ResourcePackageName");
+                        configBundle.getString("com.zalldata.analytics.android.ResourcePackageName");
                 if (null == resourcePackageName) {
                     resourcePackageName = activity.getPackageName();
                 }

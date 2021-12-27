@@ -1,16 +1,14 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-android'
-//添加 com.zalldata.zall.android 插件
+//添加 com.zalldata.analytics.android 插件
 apply plugin: 'com.zalldata.analytics.android'
-
-
 
 android {
     compileSdkVersion 30
 
     defaultConfig {
-        applicationId "com.zalldata.zall.android.demo"
+        applicationId "com.zalldata.analytics.android.demo"
         minSdkVersion 15
         targetSdkVersion 30
         versionCode 1
@@ -39,11 +37,11 @@ android {
         enabled true
     }
 
-//    sensorsAnalytics {
-//        //debug = true
-//        //autoHandleWebView = false
-//        //enableAllLambdaParamPerf = true
-//    }
+    zallAnalytics {
+        //debug = true
+        //autoHandleWebView = false
+        //enableAllLambdaParamPerf = true
+    }
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8

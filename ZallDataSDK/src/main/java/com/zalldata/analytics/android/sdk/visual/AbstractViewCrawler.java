@@ -1,5 +1,5 @@
 /*
- * Created by guo on 2020/4/13.
+ * Created by guo on 2020/07/13.
  * Copyright 2015－2020 Zall Data Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -68,7 +68,7 @@ import java.util.zip.GZIPOutputStream;
 
 import javax.net.ssl.HttpsURLConnection;
 
-public abstract class AbstractViewCrawler implements com.zalldata.analytics.android.sdk.visual.VTrack {
+public abstract class AbstractViewCrawler implements VTrack {
 
     private static final String TAG = "ZA.AbstractViewCrawler";
     private static final int MESSAGE_SEND_STATE_FOR_EDITING = 1;
@@ -113,7 +113,7 @@ public abstract class AbstractViewCrawler implements com.zalldata.analytics.andr
         }
 
         final HandlerThread thread =
-                new HandlerThread(com.zalldata.analytics.android.sdk.visual.VisualizedAutoTrackViewCrawler.class.getCanonicalName(), Process.THREAD_PRIORITY_BACKGROUND);
+                new HandlerThread(VisualizedAutoTrackViewCrawler.class.getCanonicalName(), Process.THREAD_PRIORITY_BACKGROUND);
         thread.start();
 
         mMessageThreadHandler = new ViewCrawlerHandler(mActivity, thread.getLooper(), resourcePackageName);
@@ -202,7 +202,7 @@ public abstract class AbstractViewCrawler implements com.zalldata.analytics.andr
     private class ViewCrawlerHandler extends Handler {
 
         private final EditProtocol mProtocol;
-        private com.zalldata.analytics.android.sdk.visual.ViewSnapshot mSnapshot;
+        private ViewSnapshot mSnapshot;
         private boolean mUseGzip;
         private StringBuilder mLastImageHash;
         private String mAppId;
@@ -299,14 +299,14 @@ public abstract class AbstractViewCrawler implements com.zalldata.analytics.andr
                     payload_writer.write(",\"snapshot_time_millis\": ");
                     payload_writer.write(Long.toString(snapshotTime));
                     // 添加调试信息
-                    String visualDebugInfo = com.zalldata.analytics.android.sdk.visual.VisualizedAutoTrackService.getInstance().getDebugInfo();
+                    String visualDebugInfo = VisualizedAutoTrackService.getInstance().getDebugInfo();
                     if (!TextUtils.isEmpty(visualDebugInfo)) {
                         payload_writer.write(",");
                         payload_writer.write("\"event_debug\": ");
                         payload_writer.write(visualDebugInfo);
                     }
                     // 添加诊断信息日志
-                    String visualLogInfo = com.zalldata.analytics.android.sdk.visual.VisualizedAutoTrackService.getInstance().getVisualLogInfo();
+                    String visualLogInfo = VisualizedAutoTrackService.getInstance().getVisualLogInfo();
                     if (!TextUtils.isEmpty(visualLogInfo)) {
                         payload_writer.write(",");
                         payload_writer.write("\"log_info\":");
@@ -370,7 +370,7 @@ public abstract class AbstractViewCrawler implements com.zalldata.analytics.andr
                 }
 
                 if (info.isWebView && !TextUtils.isEmpty(info.webViewUrl)) {
-                    WebNodeInfo pageInfo = com.zalldata.analytics.android.sdk.visual.WebNodesManager.getInstance().getWebPageInfo(info.webViewUrl);
+                    WebNodeInfo pageInfo = WebNodesManager.getInstance().getWebPageInfo(info.webViewUrl);
                     if (pageInfo != null) {
                         if (!TextUtils.isEmpty(pageInfo.getUrl())) {
                             writer.write(",\"h5_url\": \"" + pageInfo.getUrl() + "\"");
@@ -450,8 +450,8 @@ public abstract class AbstractViewCrawler implements com.zalldata.analytics.andr
 
         private void onSnapFinished(SnapInfo info) {
             // 当从 H5 页面切换到原生页面时，需要清除 H5 内缓存的信息。
-            if (info != null && !com.zalldata.analytics.android.sdk.visual.WebNodesManager.getInstance().hasWebView()) {
-                com.zalldata.analytics.android.sdk.visual.WebNodesManager.getInstance().clear();
+            if (info != null && !WebNodesManager.getInstance().hasWebView()) {
+                WebNodesManager.getInstance().clear();
             }
         }
 
@@ -514,7 +514,7 @@ public abstract class AbstractViewCrawler implements com.zalldata.analytics.andr
                         }
                     }
                     // 是否处于 debug = 1 状态
-                    com.zalldata.analytics.android.sdk.visual.VisualizedAutoTrackService.getInstance().setDebugModeEnabled(responseJson.optBoolean("visualized_debug_mode_enabled"));
+                    VisualizedAutoTrackService.getInstance().setDebugModeEnabled(responseJson.optBoolean("visualized_debug_mode_enabled"));
                 }
             } catch (Exception e) {
                 ZALog.printStackTrace(e);

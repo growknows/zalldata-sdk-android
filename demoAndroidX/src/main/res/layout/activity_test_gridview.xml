@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Created by guo on 2021/11/3.
+  ~ Created by guo on 2019/12/02.
   ~ Copyright 2015－2021 Zall Data Inc.
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
@@ -23,7 +23,7 @@
     >
 
 
-    <com.zalldata.zall.android.demo.widget.MyGridView
+    <com.zalldata.analytics.android.demo.widget.MyGridView
         android:id="@+id/gv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

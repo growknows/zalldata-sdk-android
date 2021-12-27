@@ -1,5 +1,5 @@
 /*
- * Created by guo on 2021/10/7.
+ * Created by guo on 2021/07/31.
  * Copyright 2015－2021 Zall Data Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -63,7 +63,7 @@ public class FragmentViewScreenCallbacks implements ZAFragmentLifecycleCallbacks
         try {
             //Fragment名称
             String fragmentName = object.getClass().getName();
-            rootView.setTag(R.id.zall_data_tag_view_fragment_name, fragmentName);
+            rootView.setTag(R.id.zall_analytics_tag_view_fragment_name, fragmentName);
 
             if (rootView instanceof ViewGroup) {
                 traverseView(fragmentName, (ViewGroup) rootView);
@@ -76,7 +76,7 @@ public class FragmentViewScreenCallbacks implements ZAFragmentLifecycleCallbacks
             if (activity != null) {
                 Window window = activity.getWindow();
                 if (window != null) {
-                    window.getDecorView().getRootView().setTag(R.id.zall_data_tag_view_fragment_name, "");
+                    window.getDecorView().getRootView().setTag(R.id.zall_analytics_tag_view_fragment_name, "");
                 }
             }
         } catch (Exception e) {
@@ -220,7 +220,7 @@ public class FragmentViewScreenCallbacks implements ZAFragmentLifecycleCallbacks
             final int childCount = root.getChildCount();
             for (int i = 0; i < childCount; ++i) {
                 final View child = root.getChildAt(i);
-                child.setTag(R.id.zall_data_tag_view_fragment_name, fragmentName);
+                child.setTag(R.id.zall_analytics_tag_view_fragment_name, fragmentName);
                 if (child instanceof ViewGroup && !(child instanceof ListView ||
                         child instanceof GridView ||
                         child instanceof Spinner ||

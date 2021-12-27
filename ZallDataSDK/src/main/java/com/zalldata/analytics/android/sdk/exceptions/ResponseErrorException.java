@@ -1,5 +1,5 @@
 /*
- * Created by guo on 2021/9/24.
+ * Created by guo on 2015/08/01.
  * Copyright 2015－2021 Zall Data Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,7 +18,7 @@
 package com.zalldata.analytics.android.sdk.exceptions;
 
 /**
- * Zall Data 返回数据收集异常
+ * Zall Analytics 返回数据收集异常
  */
 public class ResponseErrorException extends Exception {
     private int httpCode;

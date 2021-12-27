@@ -1,5 +1,5 @@
 /*
- * Created by guo on 2020/1/21.
+ * Created by guo on 2020/07/06.
  * Copyright 2015－2021 Zall Data Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -39,7 +39,7 @@ import java.util.List;
 import java.util.Set;
 
 public class DeepLinkManager {
-    public static final String IS_ANALYTICS_DEEPLINK = "is_zall_deeplink";
+    public static final String IS_ANALYTICS_DEEPLINK = "is_analytics_deeplink";
     private static DeepLinkProcessor mDeepLinkProcessor;
 
     public enum DeepLinkType {

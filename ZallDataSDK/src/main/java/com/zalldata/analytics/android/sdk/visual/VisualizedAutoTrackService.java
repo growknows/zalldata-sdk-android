@@ -1,5 +1,5 @@
 /*
- * Created by guo on 2020/1/23.
+ * Created by guo on 2019/04/13.
  * Copyright 2015－2021 Zall Data Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -82,7 +82,7 @@ public class VisualizedAutoTrackService {
             }
             if (Build.VERSION.SDK_INT >= 16) {
                 String resourcePackageName =
-                        configBundle.getString("com.zalldata.zall.android.ResourcePackageName");
+                        configBundle.getString("com.zalldata.analytics.android.ResourcePackageName");
                 if (null == resourcePackageName) {
                     resourcePackageName = activity.getPackageName();
                 }

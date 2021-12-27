@@ -1,5 +1,5 @@
 /*
- * Created by guo on 2020/11/7.
+ * Created by guo on 2020/03/05.
  * Copyright 2015－2021 Zall Data Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -163,12 +163,12 @@ public class VisualUtil {
      */
     public static void mergeRnScreenNameAndTitle(JSONObject jsonObject, View view) {
         try {
-            Class<?> rnViewUtils = ReflectUtil.getCurrentClass(new String[]{"com.zalldata.zall.utils.RNViewUtils"});
+            Class<?> rnViewUtils = ReflectUtil.getCurrentClass(new String[]{"com.zalldata.analytics.utils.RNViewUtils"});
             String properties = ReflectUtil.callStaticMethod(rnViewUtils, "getVisualizeProperties");
             if (!TextUtils.isEmpty(properties)) {
                 JSONObject object = new JSONObject(properties);
                 if (view != null && object.optBoolean("isSetRNViewTag", false)) {
-                    Object isRNView = view.getTag(R.id.zall_data_tag_view_rn_key);
+                    Object isRNView = view.getTag(R.id.zall_analytics_tag_view_rn_key);
                     if (isRNView == null || !(Boolean) isRNView) {
                         return;
                     }

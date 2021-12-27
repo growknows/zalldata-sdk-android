@@ -1,5 +1,5 @@
 /*
- * Created by guo on 2021/6/21.
+ * Created by guo on 2021/04/07.
  * Copyright 2015－2021 Zall Data Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -20,7 +20,7 @@ package com.zalldata.analytics.android.sdk.data.persistent;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.zalldata.analytics.android.sdk.util.ZASpUtils;
+import com.zalldata.analytics.android.sdk.util.SASpUtils;
 
 import java.util.concurrent.Callable;
 import java.util.concurrent.Executor;
@@ -55,7 +55,7 @@ class SharedPreferencesLoader {
 
         @Override
         public SharedPreferences call() {
-            return ZASpUtils.getSharedPreferences(mContext, mPrefsName, Context.MODE_PRIVATE);
+            return SASpUtils.getSharedPreferences(mContext, mPrefsName, Context.MODE_PRIVATE);
         }
     }
 }

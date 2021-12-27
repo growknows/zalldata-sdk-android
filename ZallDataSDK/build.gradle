@@ -9,7 +9,7 @@ def min_plugin_version = "3.4.0"
 android {
     compileSdkVersion 30
 
-    resourcePrefix "zall_data_"
+    resourcePrefix "zall_analytics_"
 
     defaultConfig {
         minSdkVersion 9
@@ -106,7 +106,7 @@ task sourceJar(type: Jar) {
 task javadoc(type: Javadoc) {
     dependsOn 'assembleRelease'
     source = android.sourceSets.main.java.srcDirs +
-            'build/generated/not_namespaced_r_class_sources/release/generateReleaseRFile/out/com/zalldata/zall/android/sdk/R.java'
+            'build/generated/not_namespaced_r_class_sources/release/generateReleaseRFile/out/com/zalldata/analytics/android/sdk/R.java'
     classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
 }
 
@@ -125,7 +125,7 @@ task javadocJar(type: Jar, dependsOn: javadoc) {
 publishing {
     publications {
         mavenAndroid(MavenPublication) {
-            groupId = 'com.zalldata.zall.android'
+            groupId = 'com.zalldata.analytics.android'
             artifactId = 'ZallDataSDK'
             version = version
             artifact sourceJar
@@ -134,9 +134,9 @@ publishing {
             // 配置 pop 文件格式
             pom {
                 packaging 'aar'
-                name = 'The official Android SDK for Zall Data.'
-                description = 'The official Android SDK for Zall Data.'
-                url = 'The official Android SDK for Zall Data.'
+                name = 'The official Android SDK for Zall Analytics.'
+                description = 'The official Android SDK for Zall Analytics.'
+                url = 'The official Android SDK for Zall Analytics.'
                 licenses {
                     license {
                         name='The Apache Software License, Version 2.0'
@@ -145,9 +145,9 @@ publishing {
                 }
                 developers {
                     developer {
-                        id = 'guozhentao'
-                        name = 'guozhentao'
-                        email = 'guozhentao@zalldigital.com'
+                        id = 'dengshiwei'
+                        name = 'dengshiwei'
+                        email = 'dengshiwei@zalldata.com'
                     }
                 }
                 scm {

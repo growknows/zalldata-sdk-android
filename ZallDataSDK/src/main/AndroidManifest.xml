@@ -18,10 +18,10 @@
             android:exported="false" />
 
         <meta-data
-            android:name="com.zalldata.zall.android.MainProcessName"
+            android:name="com.zalldata.analytics.android.MainProcessName"
             android:value="${applicationId}" />
         <meta-data
-            android:name="com.zalldata.zall.android.version"
+            android:name="com.zalldata.analytics.android.version"
             android:value="${ZALLDATA_SDK_VERSION}" />
     </application>
 </manifest>

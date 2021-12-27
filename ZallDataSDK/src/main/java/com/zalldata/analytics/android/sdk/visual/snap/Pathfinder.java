@@ -1,5 +1,5 @@
 /*
- * Created by guo on 2020/6/18.
+ * Created by guo on 2015/08/01.
  * Copyright 2015－2021 Zall Data Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -29,7 +29,7 @@ import java.util.List;
 
 /**
  * Paths in the view hierarchy, and the machinery for finding views using them.
- * An individual pathfinder is NOT THREAD SAFE, and should only be used by one thread at a time.
+ * An individual pathfinder is NOT THREAD ZAFE, and should only be used by one thread at a time.
  */
 public class Pathfinder {
 

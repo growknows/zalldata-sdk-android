@@ -1,6 +1,6 @@
 <!--
-  ~ Created by zhangxiangwei on 2020/03/02.
-  ~ Copyright 2015－2021 Sensors Data Inc.
+  ~ Created by guo on 2020/03/02.
+  ~ Copyright 2015－2021 Zall Data Inc.
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -30,10 +30,10 @@
 	<script>
 		(function (para) {
 			var p = para.sdk_url, n = para.name, w = window, d = document, s = 'script', x = null, y = null;
-			if (typeof (w['sensorsDataAnalytic201505']) !== 'undefined') {
+			if (typeof (w['zallDataAnalytic201505']) !== 'undefined') {
 				return false;
 			}
-			w['sensorsDataAnalytic201505'] = n;
+			w['zallDataAnalytic201505'] = n;
 			w[n] = w[n] || function (a) { return function () { (w[n]._q = w[n]._q || []).push([a, arguments]); } };
 			var ifs = ['track', 'quick', 'register', 'registerPage', 'registerOnce', 'trackSignup', 'trackAbtest', 'setProfile', 'setOnceProfile', 'appendProfile', 'incrementProfile', 'deleteProfile', 'unsetProfile', 'identify', 'login', 'logout', 'trackLink', 'clearAllRegister', 'getAppStatus'];
 			for (var i = 0; i < ifs.length; i++) {
@@ -51,7 +51,7 @@
 		})({
 			sdk_url: 'testselect.js',
 			heatmap_url: './heatmap.full.js',
-			name: 'sensors',
+			name: 'zall',
 			source_channel: ['gz', 'adid'],
 			max_referrer_string_length: 500,
 			use_app_track: false,
@@ -76,28 +76,28 @@
 			// 	//是否采集 $url 页面地址作为公共属性，默认值false
 			// 	url: true
 			// },
-			server_url: 'http://liuxing2.debugbox.sensorsdata.cn/sa?project=guozheng',
+			server_url: 'http://liuxing2.debugbox.zalldata.cn/sa?project=guozheng',
 
 			heatmap: {}
 		});
-		// sensors.identify('test88888');
+		// zall.identify('test88888');
 
-		// sensors.registerPage({
+		// zall.registerPage({
 		// 	user_name: 'gz'
 		// });
-		// // sensors.setProfile({ user_age: '28' });
-		// sensors.identify('55555555');
-		// sensors.identify('1170899b788048c');
-		sensors.quick('autoTrack');
-		// sensors.quick('autoTrackWithoutProfile');
-		sensors.track('userLogin', {});
-		// sensors.login('18955468888');
-		// sensors.quick('isReady', function () {
-		// 	console.log('我的$url是：' + sensors.getPresetProperties().$url);
+		// // zall.setProfile({ user_age: '28' });
+		// zall.identify('55555555');
+		// zall.identify('1170899b788048c');
+		zall.quick('autoTrack');
+		// zall.quick('autoTrackWithoutProfile');
+		zall.track('userLogin', {});
+		// zall.login('18955468888');
+		// zall.quick('isReady', function () {
+		// 	console.log('我的$url是：' + zall.getPresetProperties().$url);
 		// });
 
-		// sensors.quick('autoTrackWithoutProfile');
-		// sensors.track('test', {'$utm_source':'new11'});
+		// zall.quick('autoTrackWithoutProfile');
+		// zall.track('test', {'$utm_source':'new11'});
 	</script>
 	<style>
 		button {
@@ -121,23 +121,23 @@
 </head>
 
 <body>
-	<p data-sensors-click >测试</p>
+	<p data-zall-click >测试</p>
 	<a href="http://www.gz.com:8182/index2.html?gz=789">去http://www.gz.com:8182/index2.html?gz=789</a>
-	<div data-sensors-click id="456">
-		<div data-sensors-click id="123">
-			<input data-sensors-click id="3456789" name='我的input' placeholder="测试点击input内容采集情况" />
+	<div data-zall-click id="456">
+		<div data-zall-click id="123">
+			<input data-zall-click id="3456789" name='我的input' placeholder="测试点击input内容采集情况" />
 		</div>
 		<input placeholder="测试点击input内容采集情况" />
 	</div>
-	<input data-sensors-click placeholder="测试点击input内容采集情况" />
+	<input data-zall-click placeholder="测试点击input内容采集情况" />
 	<br>
-	<div id="testgz" data-sensors-click style="display:inline-block;height:200px;width:200px;background-color:aquamarine;">
+	<div id="testgz" data-zall-click style="display:inline-block;height:200px;width:200px;background-color:aquamarine;">
 		<a href="#" target="">baidu</a>
 	</div>
 
 	<br>
 	<!-- <a href="javascript:;" id="123" data='test'> 点击按钮触发</a> -->
-	<div id="123" sensors-click data='test'
+	<div id="123" zall-click data='test'
 		style="display:inline-block;height:200px;width:200px;background-color:blueviolet;"> 点击按钮触发
 	</div>
 	<a id="测试123" name='testdisplay'
@@ -145,11 +145,11 @@
 		<!-- <div onclick="divclick(this);" style="display:inline-block;width:120px;height:120px;background-color:red">我是内部div,触发点击事件</div> -->
 		<div style="text-align: center;display:inline-block;width:220px;height:220px;background-color:green">
 			我是内部div1,触发点击事件
-			<li data-sensors-click style="display:inline-block;width:120px;height:120px;background-color:red">我是内部div2,触发点击事件</li>
+			<li data-zall-click style="display:inline-block;width:120px;height:120px;background-color:red">我是内部div2,触发点击事件</li>
 		</div>
 	</a>
 
-	<div data-sensors-click id="测试123555555" name='testdisplay'
+	<div data-zall-click id="测试123555555" name='testdisplay'
 		style="text-align: center; display:inline-block;width:320px;height:320px;background-color:blue">
 		<!-- <div onclick="divclick(this);" style="display:inline-block;width:120px;height:120px;background-color:red">我是内部div,触发点击事件</div> -->
 		<a style="text-align: center;display:inline-block;width:220px;height:220px;background-color:green">
