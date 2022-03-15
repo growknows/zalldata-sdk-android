@@ -17,10 +17,22 @@
 package com.zalldata.analytics.android.demo;
 
 import android.app.Application;
+import android.app.PendingIntent;
+import android.content.Intent;
+import android.text.TextUtils;
+import android.util.Log;
 
+import com.huawei.hms.aaid.HmsInstanceId;
+import com.huawei.hms.common.ApiException;
+import com.huawei.hms.common.ResolvableApiException;
+import com.huawei.hms.support.log.HMSLog;
 import com.zalldata.analytics.android.sdk.ZAConfigOptions;
 import com.zalldata.analytics.android.sdk.ZallAnalyticsAutoTrackEventType;
 import com.zalldata.analytics.android.sdk.ZallDataAPI;
+
+import cn.jpush.android.api.JPushInterface;
+
+import static android.content.ContentValues.TAG;
 
 public class MyApplication extends Application {
     /**
@@ -32,6 +44,10 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
         initZallDataAPI();
+        JPushInterface.setDebugMode(true);
+        JPushInterface.init(this);
+        Log.d(TAG, "getRegistrationID: " + JPushInterface.getRegistrationID(this));
+
     }
 
     /**
@@ -46,8 +62,12 @@ public class MyApplication extends Application {
                 ZallAnalyticsAutoTrackEventType.APP_CLICK)
                 .enableTrackAppCrash()
                 .enableJavaScriptBridge(true)
+                .enableTrackPush(true)
                 .enableVisualizedAutoTrack(true);
         ZallDataAPI.startWithConfigOptions(this, configOptions);
         ZallDataAPI.sharedInstance(this).trackFragmentAppViewScreen();
     }
+
+
+
 }

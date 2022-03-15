@@ -9,26 +9,46 @@ android {
 
     defaultConfig {
         applicationId "com.zalldata.analytics.android.demo"
-        minSdkVersion 15
+        minSdkVersion 17
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
-    }
-
-    signingConfigs {
-        release {
-            storeFile file("FuXiaoDouReleaseKey.jks")
-            storePassword "FuXiaoDou@1234#5678!"
-            keyAlias "FuXiaoDouReleaseKey"
-            keyPassword "FuXiaoDou@1234#5678!"
+        multiDexEnabled true
+        ndk {
+            //选择要添加的对应 cpu 类型的 .so 库。
+            abiFilters 'armeabi', 'armeabi-v7a', 'arm64-v8a'
+            // 还可以添加 'x86', 'x86_64', 'mips', 'mips64'
         }
 
+        manifestPlaceholders = [
+                JPUSH_PKGNAME : applicationId,
+                JPUSH_APPKEY : "109ace4b3e708edf56cec7bc", //JPush 上注册的包名对应的 Appkey.
+                JPUSH_CHANNEL : "developer-default", //暂时填写默认值即可.
+
+        ]
+
+    }
+    packagingOptions {
+        doNotStrip '*/mips/*.so'
+        doNotStrip '*/mips64/*.so'
+    }
+    signingConfigs {
+        config {
+            storeFile file('/Users/mac/Work/SDK/zall/z-data-android-sdk/demoAndroidX/ZallDataSDK.jks')
+            storePassword 'ZallDataSDK'
+            keyPassword 'ZallDataSDK'
+            keyAlias 'ZallDataSDK'
+        }
     }
 
     buildTypes {
+        debug {
+            signingConfig signingConfigs.config
+        }
+
         release {
+            signingConfig signingConfigs.config
             minifyEnabled false
-            signingConfig signingConfigs.release
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -62,4 +82,18 @@ dependencies {
     implementation 'com.google.android:flexbox:1.1.0'
     implementation 'com.tencent.tbs.tbssdk:sdk:43697'
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.4'
+//    implementation 'com.huawei.hms:push:6.1.0.300'
+
+    // 此处以JCore 3.2.2 版本为例。
+    implementation 'cn.jiguang.sdk:jcore:3.2.2'
+    // 此处以JPush 4.6.2 版本为例
+    implementation 'cn.jiguang.sdk:jpush:4.6.2'
+    // 接入华为厂商
+    implementation 'com.huawei.hms:push:6.1.0.300'
+    // 极光厂商插件版本与接入 JPush 版本保持一致，下同
+    implementation 'cn.jiguang.sdk.plugin:huawei:4.6.2'
+
+
+
 }
+apply plugin: 'com.huawei.agconnect'

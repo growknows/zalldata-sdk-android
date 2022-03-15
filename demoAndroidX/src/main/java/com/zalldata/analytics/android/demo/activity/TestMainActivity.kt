@@ -19,18 +19,25 @@ package com.zalldata.analytics.android.demo.activity
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.TextUtils
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import cn.jpush.android.api.JPushInterface
+import com.huawei.hms.aaid.HmsInstanceId
+import com.huawei.hms.common.ApiException
 import com.zalldata.analytics.android.demo.PopupMenuActivity
 import com.zalldata.analytics.android.demo.R
 import com.zalldata.analytics.android.demo.custom.HorizonRecyclerDivider
 import com.zalldata.analytics.android.sdk.util.ZallDataUtils
 import kotlinx.android.synthetic.main.activity_test_list.*
+import java.security.AccessController.getContext
 
 class TestMainActivity : AppCompatActivity() {
     private lateinit var testListAdapter: TestMainAdapter
     private lateinit var dataList: List<DataEntity>
+    private val TAG = "TestMainActivity"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -63,6 +70,10 @@ class TestMainActivity : AppCompatActivity() {
         recyclerView.addItemDecoration(HorizonRecyclerDivider(this, HorizonRecyclerDivider.VERTICAL_LIST))
         testListAdapter = TestMainAdapter(this, dataList)
         recyclerView.adapter = testListAdapter
+        getToken()
+
+
+
     }
 
     class DataEntity(val content: String, val activityClazz: Class<*>, val isSupported: Boolean = false)
@@ -71,4 +82,32 @@ class TestMainActivity : AppCompatActivity() {
         super.onNewIntent(intent)
         ZallDataUtils.handleSchemeUrl(this, intent)
     }
+    private fun getToken() {
+        // 创建一个新线程
+        object : Thread() {
+            override fun run() {
+                try {
+                    // 从agconnect-services.json文件中读取APP_ID
+                    val appId = "105761465"
+
+                    // 输入token标识"HCM"
+                    val tokenScope = "HCM"
+                    val token = HmsInstanceId.getInstance(this@TestMainActivity).getToken(appId, tokenScope)
+                    Log.i(TAG, "get token:$token")
+
+                    // 判断token是否为空
+                    if (!TextUtils.isEmpty(token)) {
+                        sendRegTokenToServer(token)
+                    }
+                } catch (e: ApiException) {
+                    Log.e(TAG, "get token failed, $e")
+                }
+            }
+        }.start()
+    }
+    private fun sendRegTokenToServer(token: String?) {
+        Log.i(TAG, "sending token to server. token:$token")
+    }
+
+
 }

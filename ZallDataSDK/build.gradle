@@ -83,6 +83,7 @@ dependencies {
     testImplementation 'org.powermock:powermock-module-testng:2.0.2'
     testImplementation 'org.powermock:powermock-core:2.0.2'
 
+    implementation 'com.huawei.hms:push:6.1.0.300'
 }
 
 afterEvaluate {
@@ -178,3 +179,4 @@ publishing {
 signing {
     sign publishing.publications.mavenAndroid
 }
+apply plugin: 'com.huawei.agconnect'
