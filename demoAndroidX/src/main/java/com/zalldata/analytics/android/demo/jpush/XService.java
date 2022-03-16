@@ -1,4 +1,4 @@
-package com.zalldata.analytics.android.demo;
+package com.zalldata.analytics.android.demo.jpush;
 
 import com.huawei.hms.push.HmsMessageService;
 import com.huawei.hms.push.RemoteMessage;

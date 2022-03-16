@@ -1,4 +1,4 @@
-package com.zalldata.analytics.android.demo;
+package com.zalldata.analytics.android.demo.jpush;
 
 import android.content.Context;
 import android.util.Log;
